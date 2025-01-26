@@ -12,7 +12,7 @@ If you have any information on puppet, please make a pull request with the infor
 
 ## Self Hosting
 
-If for some reason you want to self host this website, you will need to make a MySQL/MariaDB database and import [sql/youtube_archive.sql](youtube_archive.sql) file into it (using phpmyadmin or whatever you prefer), fill in data from your personal archive using a script, then copy .env.example to .env, and fill out the information
+If for some reason you want to self host this website, you will need to make a MySQL/MariaDB database and import [youtube_archive.sql](sql/youtube_archive.sql) file into it (using phpmyadmin or whatever you prefer), fill in data from your personal archive using a script, then copy .env.example to .env, and fill out the information
 
 Running the website is really simple, here are the commands I use to run the website on pterodactyl panel:
 
