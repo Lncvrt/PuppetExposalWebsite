@@ -54,20 +54,8 @@ body::-webkit-scrollbar {
   }
 }
 
-.nav-links {
-  @apply flex gap-5;
-}
-
-.nav-links a {
-  @apply text-gray-200 no-underline font-bold transition-colors;
-}
-
-.nav-links a:hover {
-  @apply text-gray-400;
-}
-
 .main-content {
-  @apply w-fit mx-auto p-5 text-center flex-grow;
+  @apply w-fit mx-auto text-center flex-grow;
 }
 
 .container-section {
@@ -104,6 +92,10 @@ button.active {
 
 img {
   @apply pointer-events-none;
+}
+
+a {
+  -webkit-user-drag: none;
 }
 
 a,
