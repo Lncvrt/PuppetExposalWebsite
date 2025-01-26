@@ -97,7 +97,7 @@ const Layout = ({ children }: { children: React.ReactNode; }) => {
             </div>
           </header>
           <div className="main-content">{children}</div>
-          <section className="container-section w-fit mb-4">
+          <section className="container-section w-fit m-4">
             <p>&copy; Lncvrt {currentYear}- Website designed & created by Lncvrt - Contact: <a href="mailto:puppet-contact@lncvrt.xyz">puppet-contact@lncvrt.xyz</a></p>
           </section>
         </body>
