@@ -30,9 +30,16 @@ body::-webkit-scrollbar {
   @apply bg-[#3b3b3b] rounded;
 }
 
+.main-content {
+  @apply w-fit max-w-[80vw] mx-auto text-center flex-grow;
+}
+
 @media (max-width: 615px) {
   .top-bar {
     @apply max-w-[95%] text-[11px];
+  }
+  .main-content {
+    @apply !max-w-[95vw];
   }
 }
 
@@ -52,10 +59,6 @@ body::-webkit-scrollbar {
   .top-bar {
     @apply text-[7px];
   }
-}
-
-.main-content {
-  @apply w-fit mx-auto text-center flex-grow;
 }
 
 .container-section {
