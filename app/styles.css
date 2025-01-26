@@ -1,0 +1,237 @@
+@import "tailwindcss";
+
+body {
+  @apply text-[#e0e0e0] bg-[#121212] select-none m-0;
+}
+
+body::-webkit-scrollbar {
+  @apply hidden;
+}
+
+.top-bar {
+  @apply w-fit border shadow-[0px_0px_8px_8px_rgba(15,15,15,0.8)] items-center mx-auto my-[15px] rounded-[20px] border-solid border-[#323232] whitespace-nowrap;
+  @apply bg-[#1e1e1e] p-4 md:px-8 shadow-md;
+}
+
+.top-bar-content {
+  @apply flex flex-row items-center justify-between mx-auto;
+}
+
+.top-bar a {
+  @apply !text-[#c5c5c5] !no-underline;
+  @apply !transition-all !duration-[0.2s] !mx-[5px] !my-0 !px-2.5 !py-[5px];
+}
+
+.top-bar a.selected-path {
+  @apply !text-neutral-100 !font-bold;
+}
+
+.top-bar a:hover {
+  @apply bg-[#3b3b3b] rounded;
+}
+
+@media (max-width: 615px) {
+  .top-bar {
+    @apply max-w-[95%] text-[11px];
+  }
+}
+
+@media (max-width: 490px) {
+  .top-bar-icon {
+    @apply hidden;
+  }
+}
+
+@media (max-width: 415px) {
+  .top-bar {
+    @apply text-[9px];
+  }
+}
+
+@media (max-width: 315px) {
+  .top-bar {
+    @apply text-[7px];
+  }
+}
+
+.nav-links {
+  @apply flex gap-5;
+}
+
+.nav-links a {
+  @apply text-gray-200 no-underline font-bold transition-colors;
+}
+
+.nav-links a:hover {
+  @apply text-gray-400;
+}
+
+.main-content {
+  @apply w-fit mx-auto p-5 text-center flex-grow;
+}
+
+.container-section {
+  @apply border shadow-[0px_0px_8px_8px_rgba(15,15,15,0.8)] rounded-2xl border-solid border-[#323232];
+  @apply bg-[#1e1e1e] p-5 backdrop-blur-sm shadow-lg text-center mx-auto;
+}
+
+.projects-container {
+  @apply flex flex-wrap justify-center gap-7;
+}
+
+.contact-info {
+  @apply mt-6;
+}
+
+.contact-info p {
+  @apply text-base;
+}
+
+.contact-info i {
+  @apply text-xl mr-2 text-white;
+}
+
+.contact-info span,
+.contact-info a {
+  @apply ml-1;
+}
+
+.contact-info a {
+  @apply text-white no-underline;
+}
+
+.contact-info a:hover {
+  @apply text-gray-400;
+}
+
+.underline-animation {
+  @apply relative after:content-[""] after:block after:h-px after:absolute after:w-0 after:-translate-x-2/4 after:transition-[width] after:duration-[0.3s] after:left-2/4 after:bottom-0 hover:cursor-pointer hover:after:w-full;
+  @apply no-underline font-semibold relative inline-block transition-colors;
+}
+
+.underline-animation::after {
+  @apply bg-white;
+}
+
+.underline-animation:hover {
+  @apply text-white;
+}
+
+button {
+  padding: 12px 24px;
+  background-color: #333;
+  color: #f2f2f2;
+  font-weight: 600;
+  border: 1px solid #444;
+  cursor: pointer;
+  border-radius: 6px;
+  font-size: 16px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s, transform 0.2s, box-shadow 0.2s;
+  margin: 5px;
+}
+
+button:hover {
+  background-color: #444;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  transform: translateY(-2px);
+}
+
+button.active {
+  background-color: #222;
+  transform: translateY(1px);
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
+  outline: 2px solid #555;
+}
+
+img {
+  @apply pointer-events-none;
+}
+
+a,
+.highlight {
+  @apply text-[#ffee00] underline;
+}
+
+.seperator {
+  @apply w-4/5 border border-solid border-[#2e2e2e] mx-auto my-4;
+}
+
+iframe {
+  @apply rounded-[25px] border-[none];
+}
+
+img,
+iframe,
+video {
+  @apply max-w-[80%] mx-auto rounded-xl;
+}
+
+.video-grid {
+  @apply flex flex-wrap gap-4 justify-center;
+}
+
+.video-item {
+  @apply w-[360px] text-center shadow-[0_4px_6px_rgba(0,0,0,0.3)] cursor-pointer p-4 rounded-lg bg-[#282828];
+}
+
+.video-item img {
+  @apply !rounded !mb-2 !w-[320px] !h-[180px] !max-h-none !max-w-none;
+}
+
+.video-title {
+  @apply text-base text-white;
+  word-wrap: break-word;
+}
+
+.video-description {
+  font-family: "Roboto", serif;
+  padding: 12px 24px;
+  background-color: #222;
+  border: 1px solid #444;
+  border-radius: 6px;
+  font-size: 16px;
+  transition: background-color 0.3s, transform 0.2s, box-shadow 0.2s;
+  margin: 5px;
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
+  outline: 2px solid #555;
+  min-width: 15%;
+  max-width: 60%;
+}
+
+.select {
+  @apply select-text;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @apply font-bold;
+}
+
+h1 {
+  @apply text-4xl;
+}
+
+h2 {
+  @apply text-3xl;
+}
+
+h3 {
+  @apply text-2xl;
+}
+
+h4 {
+  @apply text-xl;
+}
+
+h5 {
+  @apply text-lg;
+}
+
+h6 {
+  @apply text-base;
+}
