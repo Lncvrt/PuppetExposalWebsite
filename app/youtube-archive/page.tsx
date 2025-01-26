@@ -74,51 +74,49 @@ export default function YouTubeArchive() {
   }
 
   return (
-    <div className="container">
-      <section className="container-section">
-        <h1>Puppet&apos;s YouTube Channel Archive</h1>
-        <div className="seperator" />
-        <p>Filters</p>
-        <div id="filterForm">
-          <button type="button" className={videoCategory === 'all' ? 'active' : ''} onClick={() => categoryFilter('all')}>All</button>
-          <button type="button" className={videoCategory === 'videos' ? 'active' : ''} onClick={() => categoryFilter('videos')}>Videos</button>
-          <button type="button" className={videoCategory === 'streams' ? 'active' : ''} onClick={() => categoryFilter('streams')}>Streams</button>
-          <button type="button" className={videoCategory === 'shorts' ? 'active' : ''} onClick={() => categoryFilter('shorts')}>Shorts</button>
-          <button style={{ marginLeft: '25px' }} type="button" className={filterType === 'latest' ? 'active' : ''} onClick={() => timeFilter(1)}>Latest</button>
-          <button type="button" className={filterType === 'oldest' ? 'active' : ''} onClick={() => timeFilter(0)}>Oldest</button>
+    <section className="container-section">
+      <h1>Puppet&apos;s YouTube Channel Archive</h1>
+      <div className="seperator" />
+      <p>Filters</p>
+      <div id="filterForm">
+        <button type="button" className={videoCategory === 'all' ? 'active' : ''} onClick={() => categoryFilter('all')}>All</button>
+        <button type="button" className={videoCategory === 'videos' ? 'active' : ''} onClick={() => categoryFilter('videos')}>Videos</button>
+        <button type="button" className={videoCategory === 'streams' ? 'active' : ''} onClick={() => categoryFilter('streams')}>Streams</button>
+        <button type="button" className={videoCategory === 'shorts' ? 'active' : ''} onClick={() => categoryFilter('shorts')}>Shorts</button>
+        <button style={{ marginLeft: '25px' }} type="button" className={filterType === 'latest' ? 'active' : ''} onClick={() => timeFilter(1)}>Latest</button>
+        <button type="button" className={filterType === 'oldest' ? 'active' : ''} onClick={() => timeFilter(0)}>Oldest</button>
+      </div>
+      <div className="seperator" />
+      {loading && <p>Loading videos...</p>}
+      {error && <p style={{ color: "red" }}>{error}</p>}
+      {filteredVideos.length === 0 ? (
+        <p>No videos found.</p>
+      ) : (
+        <div className="video-grid">
+          {filteredVideos.map((video) => (
+            <div
+              key={video.id}
+              className="video-item"
+              onClick={() => {
+                window.location.href = `/youtube-archive/watch?id=${video.id}`;
+              }}
+            >
+              <Image
+                src={`https://puppet-cdn.lncvrt.xyz/thumbnails/${video.id}.webp`}
+                alt={getSmallTitle(video.title)}
+                width={320}
+                height={180}
+              />
+              <p className="video-title">{getSmallTitle(video.title)}</p>
+              <p>
+                {formatTimestamp(video.timestamp)}
+                {video.stream ? ' • Stream' : ''}
+                {video.short ? ' • Short' : ''}
+              </p>
+            </div>
+          ))}
         </div>
-        <div className="seperator" />
-        {loading && <p>Loading videos...</p>}
-        {error && <p style={{ color: "red" }}>{error}</p>}
-        {filteredVideos.length === 0 ? (
-          <p>No videos found.</p>
-        ) : (
-          <div className="video-grid">
-            {filteredVideos.map((video) => (
-              <div
-                key={video.id}
-                className="video-item"
-                onClick={() => {
-                  window.location.href = `/youtube-archive/watch?id=${video.id}`;
-                }}
-              >
-                <Image
-                  src={`https://puppet-cdn.lncvrt.xyz/thumbnails/${video.id}.webp`}
-                  alt={getSmallTitle(video.title)}
-                  width={320}
-                  height={180}
-                />
-                <p className="video-title">{getSmallTitle(video.title)}</p>
-                <p>
-                  {formatTimestamp(video.timestamp)}
-                  {video.stream ? ' • Stream' : ''}
-                  {video.short ? ' • Short' : ''}
-                </p>
-              </div>
-            ))}
-          </div>
-        )}
-      </section>
-    </div >
+      )}
+    </section>
   );
 }

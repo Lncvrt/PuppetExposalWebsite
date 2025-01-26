@@ -45,29 +45,27 @@ export default function YouTubeArchive() {
   }, [id, router]);
 
   return (
-    <div className="container">
-      <section className="container-section">
-        <h1>Puppet&apos;s YouTube Channel Archive</h1>
-        <p>You are watching &quot;{videoData?.title || 'Loading...'}&quot;</p>
-        <p><a draggable="false" href="/youtube-archive">Watch another video</a></p>
-        <p>If the video is loading for a while, just wait for some time. It means it&apos;s a large video.</p>
-        {videoData?.description && (
-          <>
-            <div className="seperator" />
-            <p><b>Video Description:</b></p>
-            <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-              <p className="video-description" dangerouslySetInnerHTML={{ __html: atob(videoData.description).replaceAll("\n", "<br/>") }} />
-            </div>
-          </>
-        )}
-        <div className="seperator" />
-        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-          <video controls controlsList="nodownload noplaybackrate noremoteplayback" disablePictureInPicture id="video-player" style={{ width: '98.5%', height: 'auto', marginBottom: 'auto' }}>
-            <source id="video-source" type="video/mp4" />
-            Your browser can&apos;t play videos
-          </video>
-        </div>
-      </section>
-    </div>
+    <section className="container-section">
+      <h1>Puppet&apos;s YouTube Channel Archive</h1>
+      <p>You are watching &quot;{videoData?.title || 'Loading...'}&quot;</p>
+      <p><a draggable="false" href="/youtube-archive">Watch another video</a></p>
+      <p>If the video is loading for a while, just wait for some time. It means it&apos;s a large video.</p>
+      {videoData?.description && (
+        <>
+          <div className="seperator" />
+          <p><b>Video Description:</b></p>
+          <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+            <p className="video-description" dangerouslySetInnerHTML={{ __html: atob(videoData.description).replaceAll("\n", "<br/>") }} />
+          </div>
+        </>
+      )}
+      <div className="seperator" />
+      <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+        <video controls controlsList="nodownload noplaybackrate noremoteplayback" disablePictureInPicture id="video-player" style={{ width: '98.5%', height: 'auto', marginBottom: 'auto' }}>
+          <source id="video-source" type="video/mp4" />
+          Your browser can&apos;t play videos
+        </video>
+      </div>
+    </section>
   );
 }
