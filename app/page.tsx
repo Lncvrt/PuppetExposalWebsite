@@ -7,7 +7,7 @@ const Home = () => {
   const [shanyaDefendShow, setShanyaDefendShow] = useState(false);
   const [photoMessage, setPhotoMessage] = useState('');
   const [photoNumber, setPhotoNumber] = useState(1);
-  const photoSource = `https://puppet-large-cdn.lncvrt.xyz/exposal/${photoNumber}.png`;
+  const photoSource = `https://puppet-cdn.lncvrt.xyz/exposal/${photoNumber}.png`;
 
   const changeImage = (direction: number) => {
     const photoRange = [1, 24];
@@ -63,14 +63,14 @@ const Home = () => {
         {[...Array(24)].map((_, index) => (
           <link
             rel="preload"
-            href={`https://puppet-large-cdn.lncvrt.xyz/exposal/${index + 1}.png`}
+            href={`https://puppet-cdn.lncvrt.xyz/exposal/${index + 1}.png`}
             as="image"
             key={index}
           />
         ))}
         <p style={{ display: photoMessage != '' ? '' : 'none' }}>{photoMessage}</p>
         <p>Page {photoNumber}</p>
-        <Link draggable="false" href="https://puppet-large-cdn.lncvrt.xyz/exposal/Archive-download.php" target="_blank">Click here to download these photos</Link>
+        <Link draggable="false" href="https://puppet-cdn.lncvrt.xyz/exposal-archive.zip" target="_blank">Click here to download these photos</Link>
       </div>
       <div className="seperator" />
       <p>Want to see puppets neighborhood? You can have a look</p>
@@ -83,7 +83,7 @@ const Home = () => {
       <br />
       <div style={{ display: 'flex', justifyContent: 'center' }}>
         <audio controls>
-          <source src="https://puppet-large-cdn.lncvrt.xyz/audio/mother-disrespect-001.mp3" type="audio/mp3" />
+          <source src="https://puppet-cdn.lncvrt.xyz/audio/mother-disrespect-001.mp3" type="audio/mp3" />
           Your browser does not support the audio element.
         </audio>
       </div>
@@ -92,18 +92,18 @@ const Home = () => {
       <br />
       <div style={{ display: 'flex', justifyContent: 'center' }}>
         <audio controls>
-          <source src="https://puppet-large-cdn.lncvrt.xyz/audio/nword-say.mp3" type="audio/mp3" />
+          <source src="https://puppet-cdn.lncvrt.xyz/audio/nword-say.mp3" type="audio/mp3" />
           Your browser does not support the audio element.
         </audio>
       </div>
       <br />
       <p>Puppet sending... whatever this is, sure!</p>
       <br />
-      <img src="https://puppet-large-cdn.lncvrt.xyz/announcement.png" />
+      <img src="https://puppet-cdn.lncvrt.xyz/exposal/announcement.png" />
       <br />
       <p>This was sent in a discord server with 90% of kids being under 13, Including puppet (11)!</p>
       <br />
-      <img src="https://puppet-large-cdn.lncvrt.xyz/announcement-reply.png" />
+      <img src="https://puppet-cdn.lncvrt.xyz/exposal/announcement-reply.png" />
       <br />
       <p>Puppet replied (through the most premium chat platform - github issues!) saying it was a joke but I don&apos;t think she realizes her discord is full of very young people</p>
       <div className="seperator" />
