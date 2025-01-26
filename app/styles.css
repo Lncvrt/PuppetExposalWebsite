@@ -75,48 +75,6 @@ body::-webkit-scrollbar {
   @apply bg-[#1e1e1e] p-5 backdrop-blur-sm shadow-lg text-center mx-auto;
 }
 
-.projects-container {
-  @apply flex flex-wrap justify-center gap-7;
-}
-
-.contact-info {
-  @apply mt-6;
-}
-
-.contact-info p {
-  @apply text-base;
-}
-
-.contact-info i {
-  @apply text-xl mr-2 text-white;
-}
-
-.contact-info span,
-.contact-info a {
-  @apply ml-1;
-}
-
-.contact-info a {
-  @apply text-white no-underline;
-}
-
-.contact-info a:hover {
-  @apply text-gray-400;
-}
-
-.underline-animation {
-  @apply relative after:content-[""] after:block after:h-px after:absolute after:w-0 after:-translate-x-2/4 after:transition-[width] after:duration-[0.3s] after:left-2/4 after:bottom-0 hover:cursor-pointer hover:after:w-full;
-  @apply no-underline font-semibold relative inline-block transition-colors;
-}
-
-.underline-animation::after {
-  @apply bg-white;
-}
-
-.underline-animation:hover {
-  @apply text-white;
-}
-
 button {
   padding: 12px 24px;
   background-color: #333;
