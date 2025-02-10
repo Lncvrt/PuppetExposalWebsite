@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 
@@ -59,15 +60,7 @@ const Home = () => {
         <button onClick={() => changeImage(-1)}>Backward</button>
         <button onClick={() => changeImage(1)}>Forward</button>
         <br />
-        <img src={photoSource} alt="gallery image" />
-        {[...Array(24)].map((_, index) => (
-          <link
-            rel="preload"
-            href={`https://puppet-cdn.lncvrt.xyz/exposal/${index + 1}.png`}
-            as="image"
-            key={index}
-          />
-        ))}
+        <Image src={photoSource} alt="Gallery Image" />
         <p style={{ display: photoMessage != '' ? '' : 'none' }}>{photoMessage}</p>
         <p>Page {photoNumber}</p>
         <Link draggable="false" href="https://puppet-cdn.lncvrt.xyz/exposal-archive.zip" target="_blank">Click here to download these photos</Link>
@@ -99,11 +92,11 @@ const Home = () => {
       <br />
       <p>Puppet sending... whatever this is, sure!</p>
       <br />
-      <img src="https://puppet-cdn.lncvrt.xyz/exposal/announcement.png" />
+      <Image src="https://puppet-cdn.lncvrt.xyz/exposal/announcement.png" alt="" />
       <br />
       <p>This was sent in a discord server with 90% of kids being under 13, Including puppet (11)!</p>
       <br />
-      <img src="https://puppet-cdn.lncvrt.xyz/exposal/announcement-reply.png" />
+      <Image src="https://puppet-cdn.lncvrt.xyz/exposal/announcement-reply.png" alt="" />
       <br />
       <p>Puppet replied (through the most premium chat platform - github issues!) saying it was a joke but I don&apos;t think she realizes her discord is full of very young people</p>
       <div className="seperator" />
