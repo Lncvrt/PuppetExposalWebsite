@@ -118,7 +118,7 @@ const Home = () => {
       <br />
       <p>Puppet sending... whatever this is, sure!</p>
       <br />
-      <Image src="https://puppet-cdn.lncvrt.xyz/exposal/announcement.png" width={720} height={1280} quality={100z} alt="" />
+      <Image src="https://puppet-cdn.lncvrt.xyz/exposal/announcement.png" width={720} height={1280} quality={100} alt="" />
       <br />
       <p>This was sent in a discord server with 90% of kids being under 13, Including puppet (11)!</p>
       <br />
