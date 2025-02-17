@@ -6,37 +6,50 @@ import React, { useEffect, useState } from "react";
 
 const Home = () => {
   const [shanyaDefendShow, setShanyaDefendShow] = useState(false);
-  const [photoMessage, setPhotoMessage] = useState('');
-  const [photoNumber, setPhotoNumber] = useState(1);
-  const photoSource = `https://puppet-cdn.lncvrt.xyz/exposal/${photoNumber}.png`;
+  const [exposalPhotoMessage, setExposalPhotoMessage] = useState('');
+  const [exposalPhotoNumber, setExposalPhotoNumber] = useState(1);
+  const [neighborhoodPhotoNumber, setNeighborhoodPhotoNumber] = useState(1);
+  const exposalPhotoSource = `https://puppet-cdn.lncvrt.xyz/exposal/${exposalPhotoNumber}.png`;
+  const neighborhoodPhotoSource = `https://puppet-cdn.lncvrt.xyz/neighborhood/${neighborhoodPhotoNumber}.png`;
+  //^ will do arrays, lazy!!!!!!!
 
-  const changeImage = (direction: number) => {
+  const changeExposalImage = (direction: number) => {
     const photoRange = [1, 24];
-    setPhotoNumber((prev) => {
+    setExposalPhotoNumber((prev) => {
       const newNumber = prev + direction;
       if (newNumber < photoRange[0]) return photoRange[1];
       if (newNumber > photoRange[1]) return photoRange[0];
       return newNumber;
     });
-    setPhotoMessages();
+    setExposalPhotoMessages();
   };
 
-  const setPhotoMessages = () => {
-    if (photoNumber == 1) {
-      setPhotoMessage("This was when we had the idea of screenshot farming Puppet, because NoteX had Puppet added.");
-    } else if (photoNumber == 14) {
-      setPhotoMessage("Bad excuse.");
-    } else if (photoNumber == 15) {
-      setPhotoMessage("This is complete BS. Discord has ZERO chat encryption. Puppet pretty much talks on no other chat app than Discord.");
-    } else if (photoNumber == 19) {
-      setPhotoMessage("What the FUCK? Raping somebody, venting to another person, and not including important details like age (they were 8 btw) is crazy. Also for clarification, puppet did actually rape them.");
+  const changeNeighborhoodImage = (direction: number) => {
+    const photoRange = [1, 10];
+    setNeighborhoodPhotoNumber((prev) => {
+      const newNumber = prev + direction;
+      if (newNumber < photoRange[0]) return photoRange[1];
+      if (newNumber > photoRange[1]) return photoRange[0];
+      return newNumber;
+    });
+  };
+
+  const setExposalPhotoMessages = () => {
+    if (exposalPhotoNumber == 1) {
+      setExposalPhotoMessage("This was when we had the idea of screenshot farming Puppet, because NoteX had Puppet added.");
+    } else if (exposalPhotoNumber == 14) {
+      setExposalPhotoMessage("Bad excuse.");
+    } else if (exposalPhotoNumber == 15) {
+      setExposalPhotoMessage("This is complete BS. Discord has ZERO chat encryption. Puppet pretty much talks on no other chat app than Discord.");
+    } else if (exposalPhotoNumber == 19) {
+      setExposalPhotoMessage("What the FUCK? Raping somebody, venting to another person, and not including important details like age (they were 8 btw) is crazy. Also for clarification, puppet did actually rape them.");
     } else {
-      setPhotoMessage('');
+      setExposalPhotoMessage('');
     }
   };
 
   useEffect(() => {
-    setPhotoMessages();
+    setExposalPhotoMessages();
   });
 
   return (
@@ -57,19 +70,32 @@ const Home = () => {
       <div className="seperator" />
       <p>So why are we exposing puppet? Have a look!</p>
       <div className="gallery">
-        <button onClick={() => changeImage(-1)}>Backward</button>
-        <button onClick={() => changeImage(1)}>Forward</button>
+        <button onClick={() => changeExposalImage(-1)}>Backward</button>
+        <button onClick={() => changeExposalImage(1)}>Forward</button>
         <br />
-        <Image src={photoSource} alt="Gallery Image" />
-        <p style={{ display: photoMessage != '' ? '' : 'none' }}>{photoMessage}</p>
-        <p>Page {photoNumber}</p>
+        <img src={exposalPhotoSource} alt="Gallery Image" />
+        <p style={{ display: exposalPhotoMessage != '' ? '' : 'none' }}>{exposalPhotoMessage}</p>
+        <p>Page {exposalPhotoNumber}</p>
         <Link draggable="false" href="https://puppet-cdn.lncvrt.xyz/exposal-archive.zip" target="_blank">Click here to download these photos</Link>
       </div>
       <div className="seperator" />
       <p>Want to see puppets neighborhood? You can have a look</p>
       <br />
       <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', maxWidth: '80%', maxHeight: '80%', marginRight: 'auto', marginLeft: 'auto' }}>
-        <iframe src="https://www.google.com/maps/embed?pb=!4v1734813811102!6m8!1m7!1sbfGX5GM9X7Z12L4-a3tUAg!2m2!1d47.58186572709884!2d-117.5630751312816!3f177.80454781578263!4f2.313193941687558!5f2.814520225272894" width="750" height="600" allowFullScreen />
+        <iframe src="https://www.google.com/maps/embed?pb=!4v1739767076062!6m8!1m7!1sbfGX5GM9X7Z12L4-a3tUAg!2m2!1d47.58186217938682!2d-117.5630710157365!3f175.03170310641482!4f0.3904171338496525!5f0.7820865974627469" width="750" height="600" allowFullScreen />
+      </div>
+      <div className="seperator" />
+      <p>As you can see, puppet blurred the house, no problem, just use this gallery :)</p>
+      <div className="gallery" style={{ position: 'relative' }}>
+        <button onClick={() => changeNeighborhoodImage(-1)}>Backward</button>
+        <button onClick={() => changeNeighborhoodImage(1)}>Forward</button>
+        <br />
+        <div style={{ position: 'relative', display: 'inline-block' }}>
+          <Image src={neighborhoodPhotoSource} width={256} height={256} quality={30} alt="Gallery Image" />
+          <p style={{ position: 'absolute', top: 0, right: 30, margin: 0, rotate: "20deg", scale: "1.5" }} hidden={neighborhoodPhotoNumber != 1}>🌟</p>
+        </div>
+        <p>Page {neighborhoodPhotoNumber}</p>
+        <Link draggable="false" href="https://puppet-cdn.lncvrt.xyz/neighborhood-archive.zip" target="_blank">Click here to download these photos</Link>
       </div>
       <div className="seperator" />
       <p>Random audio recording of Puppet disrespecting his mother</p>
@@ -92,11 +118,11 @@ const Home = () => {
       <br />
       <p>Puppet sending... whatever this is, sure!</p>
       <br />
-      <Image src="https://puppet-cdn.lncvrt.xyz/exposal/announcement.png" alt="" />
+      <Image src="https://puppet-cdn.lncvrt.xyz/exposal/announcement.png" width={720} height={1280} quality={100z} alt="" />
       <br />
       <p>This was sent in a discord server with 90% of kids being under 13, Including puppet (11)!</p>
       <br />
-      <Image src="https://puppet-cdn.lncvrt.xyz/exposal/announcement-reply.png" alt="" />
+      <Image src="https://puppet-cdn.lncvrt.xyz/exposal/announcement-reply.png" width={720} height={1280} quality={100} alt="" />
       <br />
       <p>Puppet replied (through the most premium chat platform - github issues!) saying it was a joke but I don&apos;t think she realizes her discord is full of very young people</p>
       <div className="seperator" />
