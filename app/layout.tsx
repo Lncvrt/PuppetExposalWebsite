@@ -37,6 +37,18 @@ const Layout = ({ children }: { children: React.ReactNode; }) => {
     <>
       <html lang="en" className={lexend.className}>
         <head>
+          <script async src="https://www.googletagmanager.com/gtag/js?id=G-MFTD7FTLY8"></script>
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+
+              gtag('config', 'G-MFTD7FTLY8');
+              `,
+            }}
+          />
           <meta charSet="UTF-8" />
           <meta
             name="viewport"
