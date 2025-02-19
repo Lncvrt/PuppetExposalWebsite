@@ -30,8 +30,7 @@ export default function YouTubeArchive() {
           return redirect('/youtube-archive');
         }
 
-        let videoData = await response.json();
-        videoData = videoData['data']; //10/10 code ikr
+        const { data: videoData } = await response.json();
 
         setVideoData(videoData);
 
