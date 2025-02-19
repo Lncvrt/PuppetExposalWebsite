@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 import Link from "next/link";
 import "./styles.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
-import { Lexend } from "next/font/google";
+import { Lexend, Roboto } from "next/font/google";
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faFloppyDisk, faHouse, faThumbsUp } from '@fortawesome/free-solid-svg-icons';
 import { faYoutube } from '@fortawesome/free-brands-svg-icons';
@@ -18,6 +18,11 @@ library.add(faFloppyDisk);
 
 const lexend = Lexend({
   subsets: ["latin"],
+});
+
+const roboto = Roboto({
+  subsets: ["latin"],
+  weight: ["400"],
 });
 
 const Layout = ({ children }: { children: React.ReactNode; }) => {
@@ -35,7 +40,7 @@ const Layout = ({ children }: { children: React.ReactNode; }) => {
 
   return (
     <>
-      <html lang="en" className={lexend.className}>
+      <html lang="en" className={`${lexend.className} ${roboto.className}`}>
         <head>
           <script async src="https://www.googletagmanager.com/gtag/js?id=G-MFTD7FTLY8"></script>
           <script
