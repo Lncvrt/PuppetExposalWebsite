@@ -33,7 +33,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
   try {
     const start = Date.now();
-    const conn = await newConnection("1");
+    const conn = await newConnection();
     if (!conn) {
       return res.status(500).json({ message: "Failed to connect to database", success: false });
     }
