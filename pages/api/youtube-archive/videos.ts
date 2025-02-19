@@ -41,12 +41,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     conn.end();
     const videoData: Video[] = videos as Video[];
 
-    videoData.forEach(video => {
-      if (video.description) {
-        video.description = atob(video.description);
-      }
-    });
-
     const end = Date.now();
     const totalTime = formatTime(end - start);
 
