@@ -23,8 +23,15 @@ export default function YouTubeArchive() {
   useEffect(() => {
     async function fetchVideoData(videoId: string) {
       try {
-        const response = await fetch(`https://puppet-cdn.lncvrt.xyz/data/${videoId}.json`); //this needs to be migrated to the new cdn lmao
-        const videoData = await response.json();
+        const response = await fetch(`/api/youtube-archive/video?id=${videoId}`);
+
+        if (response.status != 200) {
+          alert("Error fetching video data. Please try again later.");
+          return redirect('/youtube-archive');
+        }
+
+        let videoData = await response.json();
+        videoData = videoData['data']; //10/10 code ikr
 
         setVideoData(videoData);
 
@@ -55,7 +62,14 @@ export default function YouTubeArchive() {
           <div className="seperator" />
           <p><b>Video Description:</b></p>
           <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-            <p className="video-description" dangerouslySetInnerHTML={{ __html: atob(videoData.description).replaceAll("\n", "<br/>") }} />
+            <p className="video-description">
+              {atob(videoData.description).split('\n').map((line: string, index: number) => (
+                <React.Fragment key={index}>
+                  {line}
+                  <br />
+                </React.Fragment>
+              ))}
+            </p>
           </div>
         </>
       )}
