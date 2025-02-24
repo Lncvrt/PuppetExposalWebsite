@@ -19,13 +19,13 @@ Running the website is really simple, here are the commands I use to run the web
 ### Production
 
 ```bash
-npm i && npm run build && npm run start
+npm i -g yarn && yarn && yarn build && yarn start
 ```
 
 ### Development
 
 ```bash
-npm i && npm run dev
+npm i -g yarn && yarn && yarn dev
 ```
 
 ###### If you're defending puppet, you have issues
