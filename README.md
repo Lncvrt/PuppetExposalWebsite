@@ -16,16 +16,22 @@ If for some reason you want to self host this website, you will need to make a M
 
 Running the website is really simple, here are the commands I use to run the website on pterodactyl panel:
 
+**Install yarn**
+
+```bash
+npm i -g yarn
+```
+
 ### Production
 
 ```bash
-npm i -g yarn && yarn && yarn build && yarn start
+yarn && yarn build && yarn start
 ```
 
 ### Development
 
 ```bash
-npm i -g yarn && yarn && yarn dev
+yarn && yarn dev
 ```
 
 ###### If you're defending puppet, you have issues
