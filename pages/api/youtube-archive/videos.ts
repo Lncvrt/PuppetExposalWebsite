@@ -4,9 +4,7 @@ import { formatTime } from "@/lib/util";
 import { NextApiRequest, NextApiResponse } from 'next';
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-  //please do not expect this code to be good, lots of meth was used to make this garbage code 🔥
-  //this code does work though
-  let { type, sort } = req.query;
+  const { type, sort } = req.query;
   const validTypes = ["all", "normal", "shorts", "streams"];
   const validSortTypes = ["new", "old"];
 
@@ -16,7 +14,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   if (sort && (typeof sort !== 'string' || !validSortTypes.includes(sort))) {
     return res.status(400).json({ message: "Invalid sort parameter", validSortTypes, typeExample: `?type=${type}&sort=new`, success: false });
   }
-  sort = sort ? sort : validSortTypes[0];
+
   const sortCode = sort === validSortTypes[0] ? "DESC" : "ASC";
   let endSql = "";
   switch (type) {
@@ -45,7 +43,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     const totalTime = formatTime(end - start);
 
     return res.status(200).json({ data: videoData, processTime: totalTime, success: true });
-  } catch (err) {
+  } catch {
     return res.status(500).json({ message: "Database query failed", success: false });
   }
 }

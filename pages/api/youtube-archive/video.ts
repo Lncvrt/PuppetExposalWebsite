@@ -4,7 +4,7 @@ import { formatTime } from "@/lib/util";
 import { NextApiRequest, NextApiResponse } from 'next';
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-  let { id } = req.query;
+  const { id } = req.query;
 
   try {
     const start = Date.now();
@@ -12,6 +12,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     if (!conn) {
       return res.status(500).json({ message: "Failed to connect to database", success: false });
     }
+
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const [rows]: any = await conn.query(`SELECT * FROM videos WHERE id = ? LIMIT 1`, [id]);
     conn.end();
 
@@ -25,7 +27,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     const totalTime = formatTime(end - start);
 
     return res.status(200).json({ data: videoData[0], processTime: totalTime, success: true });
-  } catch (err) {
+  } catch {
     return res.status(500).json({ message: "Database query failed", success: false });
   }
 }

@@ -1,11 +1,12 @@
 'use client';
 
+import { Video } from "@/lib/types";
 import Image from "next/image";
 import React, { useState, useEffect } from "react";
 
 export default function YouTubeArchive() {
-  const [videos, setVideos] = useState<any[]>([]);
-  const [filteredVideos, setFilteredVideos] = useState<any[]>([]);
+  const [videos, setVideos] = useState<Video[]>([]);
+  const [filteredVideos, setFilteredVideos] = useState<Video[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
   const [filterType, setFilterType] = useState<'latest' | 'oldest' | null>('latest');
@@ -47,7 +48,7 @@ export default function YouTubeArchive() {
       filtered.sort((a, b) => {
         const timestampA = a.timestamp;
         const timestampB = b.timestamp;
-        return filterType === 'latest' ? timestampB - timestampA : timestampA - timestampB;
+        return filterType === 'latest' ? (timestampB ?? 0) - (timestampA ?? 0) : (timestampA ?? 0) - (timestampB ?? 0);
       });
 
       setFilteredVideos(filtered);
@@ -66,7 +67,7 @@ export default function YouTubeArchive() {
       const { data: videosData } = await response.json();
       setVideos(videosData);
       setFilteredVideos(videosData);
-    } catch (error) {
+    } catch {
       setError('Failed to fetch videos.');
     } finally {
       setLoading(false);
@@ -103,13 +104,13 @@ export default function YouTubeArchive() {
             >
               <Image
                 src={`https://puppet-cdn.lncvrt.xyz/thumbnails/${video.id}.webp`}
-                alt={getSmallTitle(video.title)}
+                alt={getSmallTitle(video.title ?? '')}
                 width={320}
                 height={180}
               />
-              <p className="video-title">{getSmallTitle(video.title)}</p>
+              <p className="video-title">{getSmallTitle(video.title ?? '')}</p>
               <p>
-                {formatTimestamp(video.timestamp)}
+                {formatTimestamp(video.timestamp ?? 0)}
                 {video.stream ? ' • Stream' : ''}
                 {video.short ? ' • Short' : ''}
               </p>

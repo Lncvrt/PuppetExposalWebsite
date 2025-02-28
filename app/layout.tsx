@@ -42,73 +42,31 @@ const Layout = ({ children }: { children: React.ReactNode; }) => {
     <>
       <html lang="en" className={`${lexend.className} ${roboto.className}`}>
         <head>
-          <script async src="https://www.googletagmanager.com/gtag/js?id=G-MFTD7FTLY8"></script>
-          <script
-            dangerouslySetInnerHTML={{
-              __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-
-              gtag('config', 'G-MFTD7FTLY8');
-              `,
-            }}
-          />
           <meta charSet="UTF-8" />
-          <meta
-            name="viewport"
-            content="width=device-width, initial-scale=1.0"
-          />
+          <meta name="viewport" content="width=device-width, initial-scale=1.0" />
           <title>Thepuppetqueen57&apos;s Info - Exposal Site</title>
           <link rel="icon" href="/favicon.ico" />
-          <meta
-            property="og:title"
-            content="Thepuppetqueen57's Info - Exposal Site"
-          />
+          <meta property="og:title" content="Thepuppetqueen57's Info - Exposal Site" />
           <meta property="og:type" content="website" />
           <meta property="og:url" content="http://www.lncvrt.xyz/" />
-          <meta
-            property="og:image"
-            content="http://puppet.lncvrt.xyz/favicon.png"
-          />
-          <meta
-            property="og:description"
-            content="Exposing puppet for what he did to a 8 year old, and more."
-          />
+          <meta property="og:image" content="http://puppet.lncvrt.xyz/favicon.png" />
+          <meta property="og:description" content="Exposing puppet for what he did to a 8 year old, and more." />
           <meta name="theme-color" content="#ffee00" />
           <meta name="twitter:card" content="summary_small_image" />
         </head>
         <body>
           <header className="top-bar">
             <div className="top-bar-content">
-              <Link
-                draggable={false}
-                href="/"
-                className={useIsSelectedExact("/") ? "selected-path" : ""}
-              >
+              <Link draggable={false} href="/" className={useIsSelectedExact("/") ? "selected-path" : ""}>
                 <FontAwesomeIcon icon="house" width={14} height={14} className="top-bar-icon" /> Home
               </Link>
-              <Link
-                draggable={false}
-                href="/youtube-archive"
-                className={
-                  useIsSelected("/youtube-archive") ? "selected-path" : ""
-                }
-              >
+              <Link draggable={false} href="/youtube-archive" className={useIsSelected("/youtube-archive") ? "selected-path" : ""}>
                 <FontAwesomeIcon icon={['fab', 'youtube']} width={14} height={14} className="top-bar-icon" /> YouTube Archive
               </Link>
-              <Link
-                draggable={false}
-                href="/profiles"
-                className={useIsSelected("/profiles") ? "selected-path" : ""}
-              >
+              <Link draggable={false} href="/profiles" className={useIsSelected("/profiles") ? "selected-path" : ""}>
                 <FontAwesomeIcon icon="thumbs-up" width={14} height={14} className="top-bar-icon" /> Online Profiles
               </Link>
-              <Link
-                draggable={false}
-                href="/archive-info"
-                className={useIsSelected("/archive-info") ? "selected-path" : ""}
-              >
+              <Link draggable={false} href="/archive-info" className={useIsSelected("/archive-info") ? "selected-path" : ""}>
                 <FontAwesomeIcon icon="floppy-disk" width={14} height={14} className="top-bar-icon" /> Archive Info
               </Link>
             </div>

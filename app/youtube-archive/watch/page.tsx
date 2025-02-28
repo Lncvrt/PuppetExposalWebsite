@@ -18,6 +18,7 @@ export default function YouTubeArchive() {
     }
   }, [isClient]);
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const [videoData, setVideoData] = useState<any>(null);
 
   useEffect(() => {
