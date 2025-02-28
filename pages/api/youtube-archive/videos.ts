@@ -4,7 +4,8 @@ import { formatTime } from "@/lib/util";
 import { NextApiRequest, NextApiResponse } from 'next';
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-  const { type, sort } = req.query;
+  const { type } = req.query;
+  let { sort } = req.query;
   const validTypes = ["all", "normal", "shorts", "streams"];
   const validSortTypes = ["new", "old"];
 
@@ -15,6 +16,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     return res.status(400).json({ message: "Invalid sort parameter", validSortTypes, typeExample: `?type=${type}&sort=new`, success: false });
   }
 
+  sort = sort ? sort : validSortTypes[0];
   const sortCode = sort === validSortTypes[0] ? "DESC" : "ASC";
   let endSql = "";
   switch (type) {
