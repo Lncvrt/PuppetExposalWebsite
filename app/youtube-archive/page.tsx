@@ -74,6 +74,29 @@ export default function YouTubeArchive() {
     }
   }
 
+  const formatTime = (seconds: number) => {
+    const years = Math.floor(seconds / (365 * 24 * 60 * 60));
+    seconds %= 365 * 24 * 60 * 60;
+    const months = Math.floor(seconds / (30 * 24 * 60 * 60));
+    seconds %= 30 * 24 * 60 * 60;
+    const days = Math.floor(seconds / (24 * 60 * 60));
+    seconds %= 24 * 60 * 60;
+    const hours = Math.floor(seconds / (60 * 60));
+    seconds %= 60 * 60;
+    const minutes = Math.floor(seconds / 60);
+    seconds %= 60;
+
+    let result = '';
+    if (years) result += `${years}y `;
+    if (months) result += `${months}m `;
+    if (days) result += `${days}d `;
+    if (hours) result += `${hours}h `;
+    if (minutes) result += `${minutes}m `;
+    if (seconds) result += `${seconds}s`;
+
+    return result.trim();
+  };
+
   return (
     <section className="container-section">
       <h1>Puppet&apos;s YouTube Channel Archive</h1>
@@ -110,7 +133,8 @@ export default function YouTubeArchive() {
               />
               <p className="video-title">{getSmallTitle(video.title ?? '')}</p>
               <p>
-                {formatTimestamp(video.timestamp ?? 0)}
+                {formatTime(video.duration ?? 1)}
+                {` • ${formatTimestamp(video.timestamp ?? 0)}`}
                 {video.stream ? ' • Stream' : ''}
                 {video.short ? ' • Short' : ''}
               </p>
