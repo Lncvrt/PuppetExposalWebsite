@@ -73,7 +73,7 @@ const Layout = ({ children }: { children: React.ReactNode; }) => {
           </header>
           <div className="main-content">{children}</div>
           <section className="container-section w-fit m-3">
-            <p>&copy; Lncvrt {currentYear}- Website designed & created by Lncvrt - Contact: <a href="mailto:puppet-contact@lncvrt.xyz">puppet-contact@lncvrt.xyz</a></p>
+            <p>&copy; 2024 - {currentYear} Lncvrt &bull; Website designed Lncvrt - Website founded by Lncvrt & Max - Contact: <a href="mailto:puppet-contact@lncvrt.xyz">puppet-contact@lncvrt.xyz</a></p>
           </section>
         </body>
       </html >
