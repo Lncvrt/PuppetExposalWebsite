@@ -56,7 +56,7 @@ const Home = () => {
   return (
     <section className="container-section">
       <p>We&apos;re back! The site was down for 2 months as the original puppet57.site domain expired</p>
-      <p>I have decided to revive the website!</p>
+      <p>I have decided to revive the website under this domain name!</p>
       <div className="seperator" />
       <h1>Puppet&apos;s Info</h1>
       <div className="select">
