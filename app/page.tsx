@@ -68,6 +68,7 @@ const Home = () => {
         <p><strong>IP:</strong> <Link href="https://ipinfo.io/73.169.161.122">73.169.161.122</Link></p>
         <p><strong>Birthday:</strong> January 13th, 2013</p>
         <p><strong>Email: </strong> <Link href="doggyandkira2013@gmail.com">doggyandkira2013@gmail.com</Link></p>
+        <p><strong>Gender: </strong> <u>Male</u></p>
       </div>
       <div style={{ display: "flex", justifyContent: "center" }}>
         <button onClick={() => setShanyaDefendShow(!shanyaDefendShow)}>Click to {shanyaDefendShow ? 'hide' : 'show'} what Shanya (24 year old) wrote to defend Puppet when he said the N-Word</button>
