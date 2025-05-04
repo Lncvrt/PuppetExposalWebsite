@@ -55,6 +55,9 @@ const Home = () => {
 
   return (
     <section className="container-section">
+      <p>We&apos;re back! The site was down for 2 months as the original puppet57.site domain expired</p>
+      <p>I have decided to revive the website!</p>
+      <div className="seperator" />
       <h1>Puppet&apos;s Info</h1>
       <div className="select">
         <p><strong>Address:</strong> 10738 W Richland Rd, Cheney, WA 99004</p>
@@ -126,6 +129,7 @@ const Home = () => {
       <Image src="https://puppet-cdn.lncvrt.xyz/exposal/announcement-reply.png" width={720} height={1280} quality={100} alt="" />
       <br />
       <p>Puppet replied (through the most premium chat platform - github issues!) saying it was a joke but I don&apos;t think she realizes her discord is full of very young people</p>
+      <p>Puppet replied (through the most premium chat platform - github issues!) saying it was a joke but I don&apos;t think he realizes his discord is full of very young people</p>
       <div className="seperator" />
       <p>If you don&apos;t understand, Puppet <span className="highlight">sexually harassed</span> Max/Jake and <span className="highlight">SA/Raped</span> a 8 year old.</p>
       <p>We are activly adding new info. Please <Link draggable="false" href="/discord">Join The Discord</Link> if you would like to see information we find faster, we post new findings immediately.</p>
