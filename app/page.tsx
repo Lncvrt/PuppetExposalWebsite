@@ -128,7 +128,6 @@ const Home = () => {
       <br />
       <Image src="https://puppet-cdn.lncvrt.xyz/exposal/announcement-reply.png" width={720} height={1280} quality={100} alt="" />
       <br />
-      <p>Puppet replied (through the most premium chat platform - github issues!) saying it was a joke but I don&apos;t think she realizes her discord is full of very young people</p>
       <p>Puppet replied (through the most premium chat platform - github issues!) saying it was a joke but I don&apos;t think he realizes his discord is full of very young people</p>
       <div className="seperator" />
       <p>If you don&apos;t understand, Puppet <span className="highlight">sexually harassed</span> Max/Jake and <span className="highlight">SA/Raped</span> a 8 year old.</p>
