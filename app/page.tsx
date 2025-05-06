@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/no-img-element */
 "use client";
 
 import Image from "next/image";
@@ -80,7 +79,7 @@ const Home = () => {
         <button onClick={() => changeExposalImage(-1)}>Backward</button>
         <button onClick={() => changeExposalImage(1)}>Forward</button>
         <br />
-        <img src={exposalPhotoSource} alt="Gallery Image" />
+        <Image src={exposalPhotoSource} alt="Gallery Image" />
         <p style={{ display: exposalPhotoMessage != "" ? "" : "none" }}>{exposalPhotoMessage}</p>
         <p>Page {exposalPhotoNumber}</p>
         <Link draggable="false" href="https://puppet-cdn.lncvrt.xyz/exposal-archive.zip" target="_blank">Click here to download these photos</Link>
