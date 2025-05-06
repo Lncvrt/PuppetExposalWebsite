@@ -1,7 +1,7 @@
 import { newConnection } from "@/lib/db";
 import { Video } from "@/lib/types";
 import { formatTime } from "@/lib/util";
-import { NextApiRequest, NextApiResponse } from 'next';
+import { NextApiRequest, NextApiResponse } from "next";
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   const { type } = req.query;
@@ -9,10 +9,10 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   const validTypes = ["all", "normal", "shorts", "streams"];
   const validSortTypes = ["new", "old"];
 
-  if (!type || typeof type !== 'string' || !validTypes.includes(type)) {
+  if (!type || typeof type !== "string" || !validTypes.includes(type)) {
     return res.status(400).json({ message: "Invalid or missing type of video", validTypes, typeExample: "?type=all", success: false });
   }
-  if (sort && (typeof sort !== 'string' || !validSortTypes.includes(sort))) {
+  if (sort && (typeof sort !== "string" || !validSortTypes.includes(sort))) {
     return res.status(400).json({ message: "Invalid sort parameter", validSortTypes, typeExample: `?type=${type}&sort=new`, success: false });
   }
 

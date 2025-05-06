@@ -2,9 +2,9 @@
 -- version 5.2.2
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Feb 19, 2025 at 07:04 AM
--- Server version: 11.4.3-MariaDB-1
+-- Host: 127.0.0.1
+-- Generation Time: May 06, 2025 at 06:14 PM
+-- Server version: 11.4.5-MariaDB-0ubuntu0.24.10.1
 -- PHP Version: 8.3.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -18,8 +18,24 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `puppet_database`
+-- Database: `PuppetDB`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `streams`
+--
+
+CREATE TABLE `streams` (
+  `title` text DEFAULT NULL,
+  `timestamp` bigint(20) DEFAULT NULL,
+  `id` varchar(20) NOT NULL,
+  `duration` int(11) DEFAULT NULL,
+  `width` int(11) DEFAULT NULL,
+  `height` int(11) DEFAULT NULL,
+  `description` mediumtext DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -28,17 +44,22 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `videos` (
-  `title` varchar(255) DEFAULT NULL,
+  `title` text DEFAULT NULL,
   `timestamp` bigint(20) DEFAULT NULL,
   `id` varchar(20) NOT NULL,
   `duration` int(11) DEFAULT NULL,
-  `resolution` varchar(20) DEFAULT NULL,
   `width` int(11) DEFAULT NULL,
   `height` int(11) DEFAULT NULL,
   `short` tinyint(1) DEFAULT NULL,
   `stream` tinyint(1) DEFAULT NULL,
   `description` mediumtext DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Indexes for table `streams`
+--
+ALTER TABLE `streams`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `videos`

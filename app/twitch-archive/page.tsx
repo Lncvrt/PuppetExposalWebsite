@@ -1,16 +1,15 @@
 "use client";
 
-import { Video } from "@/lib/types";
+import { Stream } from "@/lib/types";
 import Image from "next/image";
 import React, { useState, useEffect } from "react";
 
-export default function YouTubeArchive() {
-  const [videos, setVideos] = useState<Video[]>([]);
-  const [filteredVideos, setFilteredVideos] = useState<Video[]>([]);
+export default function TwitchArchive() {
+  const [streams, setStreams] = useState<Stream[]>([]);
+  const [filteredStreams, setFilteredStreams] = useState<Stream[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
   const [filterType, setFilterType] = useState<"latest" | "oldest" | null>("latest");
-  const [videoCategory, setVideoCategory] = useState<"all" | "videos" | "streams" | "shorts">("all");
 
   const formatTimestamp = (timestamp: number) => {
     const date = new Date(timestamp * 1000);
@@ -21,29 +20,17 @@ export default function YouTubeArchive() {
     setFilterType(type === 1 ? "latest" : "oldest");
   };
 
-  const categoryFilter = (category: "all" | "videos" | "streams" | "shorts") => {
-    setVideoCategory(category);
-  };
-
   const getSmallTitle = (title: string) => {
     return title.length > 33 ? title.slice(0, 33) + "..." : title;
   };
 
   useEffect(() => {
-    fetchVideos();
+    fetchStreams();
   }, []);
 
   useEffect(() => {
-    if (videos.length > 0) {
-      let filtered = [...videos];
-
-      if (videoCategory === "videos") {
-        filtered = filtered.filter(video => !video.stream && !video.short);
-      } else if (videoCategory === "streams") {
-        filtered = filtered.filter(video => video.stream);
-      } else if (videoCategory === "shorts") {
-        filtered = filtered.filter(video => video.short);
-      }
+    if (streams.length > 0) {
+      const filtered = [...streams];
 
       filtered.sort((a, b) => {
         const timestampA = a.timestamp;
@@ -51,24 +38,24 @@ export default function YouTubeArchive() {
         return filterType === "latest" ? (timestampB ?? 0) - (timestampA ?? 0) : (timestampA ?? 0) - (timestampB ?? 0);
       });
 
-      setFilteredVideos(filtered);
+      setFilteredStreams(filtered);
     }
-  }, [filterType, videos, videoCategory]);
+  }, [filterType, streams]);
 
-  async function fetchVideos() {
+  async function fetchStreams() {
     setLoading(true);
     setError(null);
     try {
-      const response = await fetch("/api/youtube-archive/videos?type=all");
+      const response = await fetch("/api/twitch-archive/streams?type=all");
       if (response.status !== 200) {
-        setError("Failed to fetch videos.");
+        setError("Failed to fetch streams.");
         return;
       }
-      const { data: videosData } = await response.json();
-      setVideos(videosData);
-      setFilteredVideos(videosData);
+      const { data: streamsData } = await response.json();
+      setStreams(streamsData);
+      setFilteredStreams(streamsData);
     } catch {
-      setError("Failed to fetch videos.");
+      setError("Failed to fetch streams.");
     } finally {
       setLoading(false);
     }
@@ -107,45 +94,39 @@ export default function YouTubeArchive() {
 
   return (
     <section className="container-section">
-      <h1>Puppet&apos;s YouTube Channel Archive</h1>
+      <h1>Puppet&apos;s Twitch Channel Archive</h1>
       <div className="seperator" />
       <p>Filters</p>
       <div id="filterForm">
-        <button type="button" className={videoCategory === "all" ? "active" : ""} onClick={() => categoryFilter("all")}>All</button>
-        <button type="button" className={videoCategory === "videos" ? "active" : ""} onClick={() => categoryFilter("videos")}>Videos</button>
-        <button type="button" className={videoCategory === "streams" ? "active" : ""} onClick={() => categoryFilter("streams")}>Streams</button>
-        <button type="button" className={videoCategory === "shorts" ? "active" : ""} onClick={() => categoryFilter("shorts")}>Shorts</button>
-        <button style={{ marginLeft: "25px" }} type="button" className={filterType === "latest" ? "active" : ""} onClick={() => timeFilter(1)}>Latest</button>
+        <button type="button" className={filterType === "latest" ? "active" : ""} onClick={() => timeFilter(1)}>Latest</button>
         <button type="button" className={filterType === "oldest" ? "active" : ""} onClick={() => timeFilter(0)}>Oldest</button>
       </div>
       <div className="seperator" />
-      {loading && <p>Loading videos...</p>}
+      {loading && <p>Loading streams...</p>}
       {error && <p style={{ color: "red" }}>{error}</p>}
-      {filteredVideos.length === 0 ? (
-        <p>No videos found.</p>
+      {filteredStreams.length === 0 ? (
+        <p>No streams found.</p>
       ) : (
         <div className="video-grid">
-          {filteredVideos.map((video) => (
+          {filteredStreams.map((stream) => (
             <div
-              key={video.id}
+              key={stream.id}
               className="video-item"
               onClick={() => {
-                window.location.href = `/youtube-archive/watch?id=${video.id}`;
+                window.location.href = `/twitch-archive/watch?id=${stream.id}`;
               }}
             >
               <Image
-                src={`https://puppet-cdn.lncvrt.xyz/youtube-thumbnails/${video.id}.webp`}
-                alt={getSmallTitle(decode(video.title ?? ""))}
+                src={`https://puppet-cdn.lncvrt.xyz/twitch-thumbnails/${stream.id}.webp`}
+                alt={getSmallTitle(decode(stream.title ?? ""))}
                 width={320}
                 height={180}
                 quality={100}
               />
-              <p className="video-title">{getSmallTitle(decode(video.title ?? ""))}</p>
+              <p className="video-title">{getSmallTitle(decode(stream.title ?? ""))}</p>
               <p>
-                {formatTime(video.duration ?? 1)}
-                {` • ${formatTimestamp(video.timestamp ?? 0)}`}
-                {video.stream ? " • Stream" : ""}
-                {video.short ? " • Short" : ""}
+                {formatTime(stream.duration ?? 1)}
+                {` • ${formatTimestamp(stream.timestamp ?? 0)}`}
               </p>
             </div>
           ))}

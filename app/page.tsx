@@ -7,7 +7,7 @@ import React, { useEffect, useState } from "react";
 
 const Home = () => {
   const [shanyaDefendShow, setShanyaDefendShow] = useState(false);
-  const [exposalPhotoMessage, setExposalPhotoMessage] = useState('');
+  const [exposalPhotoMessage, setExposalPhotoMessage] = useState("");
   const [exposalPhotoNumber, setExposalPhotoNumber] = useState(1);
   const [neighborhoodPhotoNumber, setNeighborhoodPhotoNumber] = useState(1);
   const exposalPhotoSource = `https://puppet-cdn.lncvrt.xyz/exposal/${exposalPhotoNumber}.png`;
@@ -45,7 +45,7 @@ const Home = () => {
     } else if (exposalPhotoNumber == 19) {
       setExposalPhotoMessage("What the FUCK? Raping somebody, venting to another person, and not including important details like age (they were 8 btw) is crazy. Also for clarification, puppet did actually rape them.");
     } else {
-      setExposalPhotoMessage('');
+      setExposalPhotoMessage("");
     }
   };
 
@@ -71,9 +71,9 @@ const Home = () => {
         <p><strong>Gender: </strong> <u>Male</u></p>
       </div>
       <div style={{ display: "flex", justifyContent: "center" }}>
-        <button onClick={() => setShanyaDefendShow(!shanyaDefendShow)}>Click to {shanyaDefendShow ? 'hide' : 'show'} what Shanya (24 year old) wrote to defend Puppet when he said the N-Word</button>
+        <button onClick={() => setShanyaDefendShow(!shanyaDefendShow)}>Click to {shanyaDefendShow ? "hide" : "show"} what Shanya (24 year old) wrote to defend Puppet when he said the N-Word</button>
       </div>
-      <p style={{ display: shanyaDefendShow ? '' : 'none' }} className="select">I mean at the end of the day it&apos;s not the word it&apos;s what it represents. Racism. Can you really say someone is racist if they don&apos;t.. well defend their positoin? A racist says it, and doubles down and says it twice when you call them out for it. Words enter out vocabulary though, and sometimes we just say retarded shit and there isn&apos;t any thought or ideology   put behind it or any real meaning - that&apos;s not the people who should be getting chastised, it&apos;s the first group of people that should. I&apos;m not a racist, I know myself, I know my intentions. I can spell the word out: nigger. That changes nothing about my actual beliefs for simply typing a sequence of characters. Words are just sounds, it&apos;s their meaning that matters, and their meaning doesn&apos;t exist in a vacuum. &quot;Big&quot; has a meaning, but you can&apos;t just take that word in a vacuum and judge it. &quot;Big mountain&quot; provides more context, but still can&apos;t be judged in a vacuum, what is there to judge? &quot;I hate big mountains&quot; now there&apos;s a subject, &quot;I&quot;, and more context, specifically to hate. Now you have enough to actually make some kind of judgement, like &quot;I disagree&quot;, but, you can&apos;t disagree with the word &quot;big&quot; or the words &quot;big mountain&quot;. Racism is  something to be disagreed with, it&apos;s a way of thinking, a point of view, a perspective. The word itself doesn&apos;t create that context, it&apos;s associated with it, just like &quot;voltage&quot;  is associated with &quot;electricity&quot; - cancelling people for using a word without actually considering the intent, the perspective they hold, disregarding whether or not they actually are racist or not and just focusing on the word itself is sadly all too common on the internet, to the point where even I censor myself most of the time in order not to piss of an algorithm or TOS that doesn&apos;t take any of what I said into account.</p>
+      <p style={{ display: shanyaDefendShow ? "" : "none" }} className="select">I mean at the end of the day it&apos;s not the word it&apos;s what it represents. Racism. Can you really say someone is racist if they don&apos;t.. well defend their positoin? A racist says it, and doubles down and says it twice when you call them out for it. Words enter out vocabulary though, and sometimes we just say retarded shit and there isn&apos;t any thought or ideology   put behind it or any real meaning - that&apos;s not the people who should be getting chastised, it&apos;s the first group of people that should. I&apos;m not a racist, I know myself, I know my intentions. I can spell the word out: nigger. That changes nothing about my actual beliefs for simply typing a sequence of characters. Words are just sounds, it&apos;s their meaning that matters, and their meaning doesn&apos;t exist in a vacuum. &quot;Big&quot; has a meaning, but you can&apos;t just take that word in a vacuum and judge it. &quot;Big mountain&quot; provides more context, but still can&apos;t be judged in a vacuum, what is there to judge? &quot;I hate big mountains&quot; now there&apos;s a subject, &quot;I&quot;, and more context, specifically to hate. Now you have enough to actually make some kind of judgement, like &quot;I disagree&quot;, but, you can&apos;t disagree with the word &quot;big&quot; or the words &quot;big mountain&quot;. Racism is  something to be disagreed with, it&apos;s a way of thinking, a point of view, a perspective. The word itself doesn&apos;t create that context, it&apos;s associated with it, just like &quot;voltage&quot;  is associated with &quot;electricity&quot; - cancelling people for using a word without actually considering the intent, the perspective they hold, disregarding whether or not they actually are racist or not and just focusing on the word itself is sadly all too common on the internet, to the point where even I censor myself most of the time in order not to piss of an algorithm or TOS that doesn&apos;t take any of what I said into account.</p>
       <div className="seperator" />
       <p>So why are we exposing puppet? Have a look!</p>
       <div className="gallery">
@@ -81,25 +81,25 @@ const Home = () => {
         <button onClick={() => changeExposalImage(1)}>Forward</button>
         <br />
         <img src={exposalPhotoSource} alt="Gallery Image" />
-        <p style={{ display: exposalPhotoMessage != '' ? '' : 'none' }}>{exposalPhotoMessage}</p>
+        <p style={{ display: exposalPhotoMessage != "" ? "" : "none" }}>{exposalPhotoMessage}</p>
         <p>Page {exposalPhotoNumber}</p>
         <Link draggable="false" href="https://puppet-cdn.lncvrt.xyz/exposal-archive.zip" target="_blank">Click here to download these photos</Link>
       </div>
       <div className="seperator" />
       <p>Want to see puppets neighborhood? You can have a look</p>
       <br />
-      <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', maxWidth: '80%', maxHeight: '80%', marginRight: 'auto', marginLeft: 'auto' }}>
+      <div style={{ display: "flex", justifyContent: "center", alignItems: "center", maxWidth: "80%", maxHeight: "80%", marginRight: "auto", marginLeft: "auto" }}>
         <iframe src="https://www.google.com/maps/embed?pb=!4v1739767076062!6m8!1m7!1sbfGX5GM9X7Z12L4-a3tUAg!2m2!1d47.58186217938682!2d-117.5630710157365!3f175.03170310641482!4f0.3904171338496525!5f0.7820865974627469" width="750" height="600" allowFullScreen />
       </div>
       <div className="seperator" />
       <p>As you can see, puppet blurred the house, no problem, just use this gallery :)</p>
-      <div className="gallery" style={{ position: 'relative' }}>
+      <div className="gallery" style={{ position: "relative" }}>
         <button onClick={() => changeNeighborhoodImage(-1)}>Backward</button>
         <button onClick={() => changeNeighborhoodImage(1)}>Forward</button>
         <br />
-        <div style={{ position: 'relative', display: 'inline-block' }}>
+        <div style={{ position: "relative", display: "inline-block" }}>
           <Image src={neighborhoodPhotoSource} width={256} height={256} quality={30} alt="Gallery Image" />
-          <p style={{ position: 'absolute', top: 0, right: 30, margin: 0, rotate: "20deg", scale: "1.5" }} hidden={neighborhoodPhotoNumber != 1}>🌟</p>
+          <p style={{ position: "absolute", top: 0, right: 30, margin: 0, rotate: "20deg", scale: "1.5" }} hidden={neighborhoodPhotoNumber != 1}>🌟</p>
         </div>
         <p>Page {neighborhoodPhotoNumber}</p>
         <Link draggable="false" href="https://puppet-cdn.lncvrt.xyz/neighborhood-archive.zip" target="_blank">Click here to download these photos</Link>
@@ -107,7 +107,7 @@ const Home = () => {
       <div className="seperator" />
       <p>Random audio recording of Puppet disrespecting his mother</p>
       <br />
-      <div style={{ display: 'flex', justifyContent: 'center' }}>
+      <div style={{ display: "flex", justifyContent: "center" }}>
         <audio controls>
           <source src="https://puppet-cdn.lncvrt.xyz/audio/mother-disrespect-001.mp3" type="audio/mp3" />
           Your browser does not support the audio element.
@@ -116,7 +116,7 @@ const Home = () => {
       <br />
       <p>Puppet saying racial slurs? You know it!</p>
       <br />
-      <div style={{ display: 'flex', justifyContent: 'center' }}>
+      <div style={{ display: "flex", justifyContent: "center" }}>
         <audio controls>
           <source src="https://puppet-cdn.lncvrt.xyz/audio/nword-say.mp3" type="audio/mp3" />
           Your browser does not support the audio element.

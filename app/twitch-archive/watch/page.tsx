@@ -14,8 +14,8 @@ export default function YouTubeArchive() {
 
     if (isClient) {
       const searchParams = new URLSearchParams(window.location.search);
-      const videoId = searchParams.get("id");
-      setId(videoId);
+      const streamId = searchParams.get("id");
+      setId(streamId);
     }
   }, [isClient]);
 
@@ -28,51 +28,51 @@ export default function YouTubeArchive() {
   }
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const [videoData, setVideoData] = useState<any>(null);
+  const [streamData, setStreamData] = useState<any>(null);
 
   useEffect(() => {
-    async function fetchVideoData(videoId: string) {
+    async function fetchStreamData(streamId: string) {
       try {
-        const response = await fetch(`/api/youtube-archive/video?id=${videoId}`);
+        const response = await fetch(`/api/twitch-archive/stream?id=${streamId}`);
 
         if (response.status != 200) {
-          alert("Error fetching video data. Please try again later.");
-          return redirect("/youtube-archive");
+          alert("Error fetching stream data. Please try again later.");
+          return redirect("/twitch-archive");
         }
 
-        const { data: videoData } = await response.json();
+        const { data: streamData } = await response.json();
 
-        setVideoData(videoData);
+        setStreamData(streamData);
 
-        const videoPlayer = document.getElementById("video-player") as HTMLVideoElement;
-        const videoSource = document.getElementById("video-source") as HTMLSourceElement;
-        videoSource.src = `https://puppet-large-cdn.lncvrt.xyz/youtube-archive/${videoData.id}.mp4`;
-        videoPlayer.load();
+        const streamPlayer = document.getElementById("video-player") as HTMLVideoElement;
+        const streamSource = document.getElementById("video-source") as HTMLSourceElement;
+        streamSource.src = `https://puppet-large-cdn.lncvrt.xyz/twitch-archive/${streamData.id}.mp4`;
+        streamPlayer.load();
       } catch (error) {
-        console.error("Error fetching video data:", error);
-        alert("Error fetching video data. Please try again later.");
-        return redirect("/youtube-archive");
+        console.error("Error fetching stream data:", error);
+        alert("Error fetching stream data. Please try again later.");
+        return redirect("/twitch-archive");
       }
     }
 
     if (id) {
-      fetchVideoData(id);
+      fetchStreamData(id);
     }
   }, [id, router]);
 
   return (
     <section className="container-section">
-      <h1>Puppet&apos;s YouTube Channel Archive</h1>
-      <p>You are watching &quot;{decode(videoData?.title) || "Loading..."}&quot;</p>
-      <p><Link draggable="false" href="/youtube-archive">Watch another video</Link></p>
-      <p>If the video is loading for a while, just wait for some time. It means it&apos;s a large video.</p>
-      {videoData?.description && (
+      <h1>Puppet&apos;s Twitch Channel Archive</h1>
+      <p>You are watching &quot;{decode(streamData?.title) || "Loading..."}&quot;</p>
+      <p><Link draggable="false" href="/twitch-archive">Watch another stream</Link></p>
+      <p>If the stream is loading for a while, just wait for some time. It means it&apos;s a large stream.</p>
+      {streamData?.description && (
         <>
           <div className="seperator" />
-          <p><b>Video Description:</b></p>
+          <p><b>Stream Description:</b></p>
           <div style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
             <p className="video-description">
-              {atob(videoData.description).split("\n").map((line: string, index: number) => (
+              {atob(streamData.description).split("\n").map((line: string, index: number) => (
                 <React.Fragment key={index}>
                   {line}
                   <br />

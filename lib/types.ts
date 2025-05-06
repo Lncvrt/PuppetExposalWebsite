@@ -3,11 +3,19 @@ export interface Video {
     timestamp: number | null;
     id: string;
     duration: number | null;
-    resolution: string | null;
     width: number | null;
     height: number | null;
     short: boolean | null;
     stream: boolean | null;
     description: string | null;
 }
-//i think this is right ^
+
+export interface Stream {
+    title: string | null;
+    timestamp: number | null;
+    id: string;
+    duration: number | null;
+    width: number | null;
+    height: number | null;
+    description: string | null;
+}
