@@ -6,7 +6,7 @@ import Link from "next/link";
 import "./styles.css";
 import { Lexend, Roboto } from "next/font/google";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faFloppyDisk, faHouse, faThumbsUp } from "@fortawesome/free-solid-svg-icons";
+import { faFloppyDisk, faHouse, faThumbsUp, faWarning } from "@fortawesome/free-solid-svg-icons";
 
 const lexend = Lexend({
   subsets: ["latin"],
@@ -36,6 +36,7 @@ const Layout = ({ children }: { children: React.ReactNode; }) => {
     "/archives/twitch": "Twitch Archive",
     "/archives/youtube": "YouTube Archive",
     "/profiles": "Online Profiles",
+    "/exposal": "Exposal",
     "/archives": "Archives",
     "/": "Home",
   };
@@ -67,6 +68,9 @@ const Layout = ({ children }: { children: React.ReactNode; }) => {
               </Link>
               <Link draggable={false} href="/archives" className={useIsSelected("/archives") ? "selected-path" : ""}>
                 <FontAwesomeIcon icon={faFloppyDisk} width={14} height={14} className="top-bar-icon" /> Archives
+              </Link>
+              <Link draggable={false} href="/exposal" className={useIsSelected("/exposal") ? "selected-path" : ""}>
+                <FontAwesomeIcon icon={faWarning} width={14} height={14} className="top-bar-icon" /> Exposal
               </Link>
               <Link draggable={false} href="/profiles" className={useIsSelected("/profiles") ? "selected-path" : ""}>
                 <FontAwesomeIcon icon={faThumbsUp} width={14} height={14} className="top-bar-icon" /> Online Profiles

@@ -11,14 +11,14 @@ export default function ArchiveInfo() {
       <p>We try our hardest daily to expand on this the most we can.</p>
       <div className="seperator" />
       <h3>Select what you want to view</h3>
-      <div className="archives-container">
-        <Link draggable={false} href="/archives/youtube" className="archive-box button">
-          <FontAwesomeIcon icon={faYoutube} className="archive-icon" />
-          <span className="archive-title">YouTube Archive</span>
+      <div className="selections-container">
+        <Link draggable={false} href="/archives/youtube" className="selection-box button">
+          <FontAwesomeIcon icon={faYoutube} className="selection-icon" />
+          <span className="selection-title">YouTube Archive</span>
         </Link>
-        <Link draggable={false} href="/archives/twitch" className="archive-box button">
-          <FontAwesomeIcon icon={faTwitch} className="archive-icon" />
-          <span className="archive-title">Twitch Archive</span>
+        <Link draggable={false} href="/archives/twitch" className="selection-box button">
+          <FontAwesomeIcon icon={faTwitch} className="selection-icon" />
+          <span className="selection-title">Twitch Archive</span>
         </Link>
       </div>
     </section >

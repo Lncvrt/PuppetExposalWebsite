@@ -10,7 +10,7 @@ body::-webkit-scrollbar {
 
 .top-bar {
   @apply w-fit border shadow-[0px_0px_8px_8px_rgba(15,15,15,0.8)] items-center mx-auto my-[15px] rounded-lg border-solid border-[#323232] whitespace-nowrap;
-  @apply bg-[#1e1e1e] p-4 md:px-8 shadow-md;
+  @apply bg-[#1e1e1e] p-4;
 }
 
 .top-bar-content {
@@ -44,6 +44,9 @@ body::-webkit-scrollbar {
 }
 
 @media (max-width: 490px) {
+  .top-bar {
+    @apply !px-0;
+  }
   .top-bar-icon {
     @apply hidden;
   }
@@ -189,18 +192,25 @@ h6 {
   @apply text-base;
 }
 
-.archives-container {
+.selections-container {
   @apply flex gap-4 flex-wrap mt-2 justify-center;
 }
 
-.archive-box {
+.selection-box {
   @apply flex flex-col items-center justify-center no-underline m-0;
 }
 
-.archive-box .archive-icon {
+.selection-box .selection-icon {
   @apply text-4xl;
+  filter: drop-shadow(0 0 6px rgba(0, 0, 0, 1));
+  transition: filter 0.2s ease-in-out;
 }
 
-.archive-title {
+.selection-box:hover .selection-icon {
+  @apply text-4xl;
+  filter: drop-shadow(0 0 6px rgb(172, 172, 172));
+}
+
+.selection-title {
   @apply mt-2 text-sm;
 }

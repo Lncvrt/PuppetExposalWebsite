@@ -61,6 +61,8 @@ export default function Profiles() {
         <p><strong>Yhype.me Profile:</strong> <Link draggable="false" href="https://yhype.me/github/@Thepuppetqueen57" target="_blank">@Thepuppetqueen57</Link></p>
         <p><strong>Geometry Dash Profile:</strong> <Link draggable="false" href="https://gdbrowser.com/u/18517327" target="_blank">@Thepuppetqueen5</Link></p>
       </div>
+      <div className="seperator" />
+      <p>This will be cleaned up soon so it is easier to read</p>
     </section>
   );
 };
