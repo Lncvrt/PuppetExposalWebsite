@@ -48,7 +48,8 @@ export default function TwitchArchive() {
     try {
       const response = await fetch("/api/twitch-archive/streams?type=all");
       if (response.status !== 200) {
-        setError("Failed to fetch streams.");
+        const data = await response.json();
+        setError("Failed to fetch streams: " + (data.message || "Unknown error"));
         return;
       }
       const { data: streamsData } = await response.json();

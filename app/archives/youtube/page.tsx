@@ -61,7 +61,8 @@ export default function YouTubeArchive() {
     try {
       const response = await fetch("/api/youtube-archive/videos?type=all");
       if (response.status !== 200) {
-        setError("Failed to fetch videos.");
+        const data = await response.json();
+        setError("Failed to fetch videos: " + (data.message || "Unknown error"));
         return;
       }
       const { data: videosData } = await response.json();
