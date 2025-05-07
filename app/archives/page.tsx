@@ -10,7 +10,7 @@ export default function ArchiveInfo() {
       <p>We archive a lot of puppets content, a bit too much.</p>
       <p>We try our hardest daily to expand on this the most we can.</p>
       <div className="seperator" />
-      <h2>Select what you want to view</h2>
+      <h3>Select what you want to view</h3>
       <div className="archives-container">
         <Link draggable={false} href="/archives/youtube" className="archive-box">
           <FontAwesomeIcon icon={faYoutube} className="archive-icon" />
