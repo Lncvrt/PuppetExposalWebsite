@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 
@@ -96,7 +97,7 @@ const Home = () => {
         <button onClick={() => changeNeighborhoodImage(1)}>Forward</button>
         <br />
         <div style={{ position: "relative", display: "inline-block" }}>
-          <img src={neighborhoodPhotoSource} width={256} height={256} alt="Gallery Image" />
+          <Image src={neighborhoodPhotoSource} width={256} height={256} quality={100} unoptimized={true} alt="Gallery Image" />
           <p style={{ position: "absolute", top: 0, right: 30, margin: 0, rotate: "20deg", scale: "1.5" }} hidden={neighborhoodPhotoNumber != 1}>🌟</p>
         </div>
         <p>Page {neighborhoodPhotoNumber}</p>
@@ -123,11 +124,11 @@ const Home = () => {
       <br />
       <p>Puppet sending... whatever this is, sure!</p>
       <br />
-      <img src="https://puppet-cdn.lncvrt.xyz/exposal/announcement.png" width={720} height={1280} alt="" />
+      <Image src="https://puppet-cdn.lncvrt.xyz/exposal/announcement.png" width={720} height={1280} quality={100} unoptimized={true} alt="" />
       <br />
       <p>This was sent in a discord server with 90% of kids being under 13, Including puppet (11)!</p>
       <br />
-      <img src="https://puppet-cdn.lncvrt.xyz/exposal/announcement-reply.png" width={720} height={1280} alt="" />
+      <Image src="https://puppet-cdn.lncvrt.xyz/exposal/announcement-reply.png" width={720} height={1280} quality={100} unoptimized={true} alt="" />
       <br />
       <p>Puppet replied (through the most premium chat platform - github issues!) saying it was a joke but I don&apos;t think he realizes his discord is full of very young people</p>
       <div className="seperator" />
