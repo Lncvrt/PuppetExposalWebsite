@@ -9,7 +9,7 @@ export default function YouTubeArchive() {
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
   const [filterType, setFilterType] = useState<"latest" | "oldest" | null>("latest");
-  const [videoCategory, setVideoCategory] = useState<"all" | "videos" | "streams" | "shorts">("all");
+  const [videoCategory, setVideoCategory] = useState<"all" | "videos" | "streams" | "shorts">("videos");
 
   const formatTimestamp = (timestamp: number) => {
     const date = new Date(timestamp * 1000);
