@@ -1,6 +1,7 @@
 "use client";
 
 import { Video } from "@/lib/types";
+import Image from "next/image";
 import React, { useState, useEffect } from "react";
 
 export default function YouTubeArchive() {
@@ -132,11 +133,13 @@ export default function YouTubeArchive() {
                 window.location.href = `/archives/youtube/watch/${video.id}`;
               }}
             >
-              <img
+              <Image
                 src={`https://puppet-cdn.lncvrt.xyz/youtube-thumbnails/${video.id}.webp`}
                 alt={getSmallTitle(decode(video.title ?? ""))}
                 width={320}
                 height={180}
+                quality={100}
+                unoptimized={true}
               />
               <p className="video-title">{getSmallTitle(decode(video.title ?? ""))}</p>
               <p>
