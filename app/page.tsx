@@ -66,7 +66,7 @@ const Home = () => {
         <p><strong>&quot;Dads&quot; Minecraft Account</strong>: <Link draggable="false" href="https://namemc.com/profile/d96cf667-29e3-4047-977e-f2e97e031208">Natergamez</Link></p>
         <p><strong>IP:</strong> <Link href="https://ipinfo.io/73.169.161.122">73.169.161.122</Link></p>
         <p><strong>Birthday:</strong> January 13th, 2013</p>
-        <p><strong>Email: </strong> <Link href="doggyandkira2013@gmail.com">doggyandkira2013@gmail.com</Link></p>
+        <p><strong>Email: </strong> <Link href="mailto:doggyandkira2013@gmail.com">doggyandkira2013@gmail.com</Link></p>
         <p><strong>Gender: </strong> <u>Male</u></p>
       </div>
       <div style={{ display: "flex", justifyContent: "center" }}>
