@@ -66,7 +66,7 @@ body::-webkit-scrollbar {
   @apply bg-[#1e1e1e] p-5 backdrop-blur-sm shadow-lg text-center mx-auto;
 }
 
-button {
+.button, button {
   padding: 12px 24px;
   background-color: #333;
   color: #f2f2f2;
@@ -80,7 +80,7 @@ button {
   margin: 5px;
 }
 
-button:hover {
+.button:hover, button:hover {
   background-color: #444;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
   transform: translateY(-2px);
@@ -194,7 +194,7 @@ h6 {
 }
 
 .archive-box {
-  @apply flex flex-col items-center justify-center w-32 h-32 text-white rounded-lg hover:scale-105 transition bg-[#282828] cursor-pointer shadow-[0_4px_6px_rgba(0,0,0,0.3)] no-underline;
+  @apply flex flex-col items-center justify-center no-underline m-0;
 }
 
 .archive-box .archive-icon {
