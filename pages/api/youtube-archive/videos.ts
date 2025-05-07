@@ -1,6 +1,7 @@
 import { newConnection } from "@/lib/db";
 import { Video } from "@/lib/types";
 import { formatTime } from "@/lib/util";
+import { FieldPacket, QueryResult } from "mysql2";
 import { NextApiRequest, NextApiResponse } from "next";
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
@@ -37,14 +38,14 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     if (!conn) {
       return res.status(500).json({ message: "Failed to connect to database", success: false });
     }
-    const [videos] = await conn.query(`SELECT * FROM videos${endSql} ORDER BY timestamp ${sortCode}`);
+    const [queryResult]: [QueryResult, FieldPacket[]] = await conn.query(`SELECT * FROM videos${endSql} ORDER BY timestamp ${sortCode}`);
     conn.end();
-    const videoData: Video[] = videos as Video[];
+    const rows: Video[] = queryResult as QueryResult & { rows: Video[] } & Video[];
 
     const end = Date.now();
     const totalTime = formatTime(end - start);
 
-    return res.status(200).json({ data: videoData, processTime: totalTime, success: true });
+    return res.status(200).json({ data: rows, processTime: totalTime, success: true });
   } catch {
     return res.status(500).json({ message: "Database query failed", success: false });
   }

@@ -188,3 +188,19 @@ h5 {
 h6 {
   @apply text-base;
 }
+
+.archives-container {
+  @apply flex gap-4 flex-wrap mt-2 justify-center;
+}
+
+.archive-box {
+  @apply flex flex-col items-center justify-center w-32 h-32 text-white rounded-lg hover:scale-105 transition bg-[#282828] cursor-pointer shadow-[0_4px_6px_rgba(0,0,0,0.3)] no-underline;
+}
+
+.archive-box .archive-icon {
+  @apply text-4xl;
+}
+
+.archive-title {
+  @apply mt-2 text-sm;
+}

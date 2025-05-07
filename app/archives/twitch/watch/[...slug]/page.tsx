@@ -1,34 +1,39 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { use, useEffect, useState } from "react";
 import { redirect, useRouter } from "next/navigation";
 import Link from "next/link";
+import { Stream } from "@/lib/types";
 
-export default function YouTubeArchive() {
+export default function TwitchArchiveViewer({ params }: { params: Promise<{ slug: string[] }> }) {
   const router = useRouter();
   const [isClient, setIsClient] = useState(false);
   const [id, setId] = useState<string | null>(null);
+  const resolvedParams = use(params);
 
   useEffect(() => {
     setIsClient(true);
 
     if (isClient) {
-      const searchParams = new URLSearchParams(window.location.search);
-      const streamId = searchParams.get("id");
-      setId(streamId);
+      if (resolvedParams && resolvedParams.slug && resolvedParams.slug.length > 0) {
+        const streamId = resolvedParams.slug[0];
+        setId(streamId);
+      } else {
+        alert("Invalid stream ID. Please try again.");
+        redirect("/archives/twitch");
+      }
     }
-  }, [isClient]);
+  }, [isClient, resolvedParams]);
 
-  const decode = (str?: string) => {
+  const decode = (str?: string | null) => {
     try {
-      return str ? atob(str) : ""
+      return str ? atob(str) : "";
     } catch {
-      return str || ""
+      return str || "";
     }
   }
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const [streamData, setStreamData] = useState<any>(null);
+  const [streamData, setStreamData] = useState<Stream | null>(null);
 
   useEffect(() => {
     async function fetchStreamData(streamId: string) {
@@ -37,7 +42,7 @@ export default function YouTubeArchive() {
 
         if (response.status != 200) {
           alert("Error fetching stream data. Please try again later.");
-          return redirect("/twitch-archive");
+          return redirect("/archives/twitch");
         }
 
         const { data: streamData } = await response.json();
@@ -51,7 +56,7 @@ export default function YouTubeArchive() {
       } catch (error) {
         console.error("Error fetching stream data:", error);
         alert("Error fetching stream data. Please try again later.");
-        return redirect("/twitch-archive");
+        return redirect("/archives/twitch");
       }
     }
 
@@ -64,7 +69,7 @@ export default function YouTubeArchive() {
     <section className="container-section">
       <h1>Puppet&apos;s Twitch Channel Archive</h1>
       <p>You are watching &quot;{decode(streamData?.title) || "Loading..."}&quot;</p>
-      <p><Link draggable="false" href="/twitch-archive">Watch another stream</Link></p>
+      <p><Link draggable="false" href="/archives/twitch">Watch another stream</Link></p>
       <p>If the stream is loading for a while, just wait for some time. It means it&apos;s a large stream.</p>
       {streamData?.description && (
         <>

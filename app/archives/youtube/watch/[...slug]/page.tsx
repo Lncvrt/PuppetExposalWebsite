@@ -1,34 +1,39 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { use, useEffect, useState } from "react";
 import { redirect, useRouter } from "next/navigation";
 import Link from "next/link";
+import { Video } from "@/lib/types";
 
-export default function YouTubeArchive() {
+export default function YouTubeArchiveViewer({ params }: { params: Promise<{ slug: string[] }> }) {
   const router = useRouter();
   const [isClient, setIsClient] = useState(false);
   const [id, setId] = useState<string | null>(null);
+  const resolvedParams = use(params);
 
   useEffect(() => {
     setIsClient(true);
 
     if (isClient) {
-      const searchParams = new URLSearchParams(window.location.search);
-      const videoId = searchParams.get("id");
-      setId(videoId);
+      if (resolvedParams && resolvedParams.slug && resolvedParams.slug.length > 0) {
+        const videoId = resolvedParams.slug[0];
+        setId(videoId);
+      } else {
+        alert("Invalid video ID. Please try again.");
+        redirect("/archives/youtube");
+      }
     }
-  }, [isClient]);
+  }, [isClient, resolvedParams]);
 
-  const decode = (str?: string) => {
+  const decode = (str?: string | null) => {
     try {
-      return str ? atob(str) : ""
+      return str ? atob(str) : "";
     } catch {
-      return str || ""
+      return str || "";
     }
   }
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const [videoData, setVideoData] = useState<any>(null);
+  const [videoData, setVideoData] = useState<Video | null>(null);
 
   useEffect(() => {
     async function fetchVideoData(videoId: string) {
@@ -37,7 +42,7 @@ export default function YouTubeArchive() {
 
         if (response.status != 200) {
           alert("Error fetching video data. Please try again later.");
-          return redirect("/youtube-archive");
+          return redirect("/archives/youtube");
         }
 
         const { data: videoData } = await response.json();
@@ -51,7 +56,7 @@ export default function YouTubeArchive() {
       } catch (error) {
         console.error("Error fetching video data:", error);
         alert("Error fetching video data. Please try again later.");
-        return redirect("/youtube-archive");
+        return redirect("/archives/youtube");
       }
     }
 
@@ -64,7 +69,7 @@ export default function YouTubeArchive() {
     <section className="container-section">
       <h1>Puppet&apos;s YouTube Channel Archive</h1>
       <p>You are watching &quot;{decode(videoData?.title) || "Loading..."}&quot;</p>
-      <p><Link draggable="false" href="/youtube-archive">Watch another video</Link></p>
+      <p><Link draggable="false" href="/archives/youtube">Watch another video</Link></p>
       <p>If the video is loading for a while, just wait for some time. It means it&apos;s a large video.</p>
       {videoData?.description && (
         <>

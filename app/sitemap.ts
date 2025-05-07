@@ -8,7 +8,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "daily",
     },
     {
-      url: "https://puppet.lncvrt.xyz/youtube-archive",
+      url: "https://puppet.lncvrt.xyz/archives/youtube",
+      lastModified: new Date(),
+      changeFrequency: "daily",
+    },
+    {
+      url: "https://puppet.lncvrt.xyz/archives/twitch",
       lastModified: new Date(),
       changeFrequency: "daily",
     },
@@ -16,11 +21,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: "https://puppet.lncvrt.xyz/profiles",
       lastModified: new Date(),
       changeFrequency: "daily",
-    },
-    {
-      url: "https://puppet.lncvrt.xyz/archive-info",
-      lastModified: new Date(),
-      changeFrequency: "daily",
-    },
+    }
   ];
 }

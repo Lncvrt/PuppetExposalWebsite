@@ -1,7 +1,6 @@
 "use client";
 
 import { Stream } from "@/lib/types";
-import Image from "next/image";
 import React, { useState, useEffect } from "react";
 
 export default function TwitchArchive() {
@@ -113,15 +112,14 @@ export default function TwitchArchive() {
               key={stream.id}
               className="video-item"
               onClick={() => {
-                window.location.href = `/twitch-archive/watch?id=${stream.id}`;
+                window.location.href = `/archives/twitch/watch/${stream.id}`;
               }}
             >
-              <Image
+              <img
                 src={`https://puppet-cdn.lncvrt.xyz/twitch-thumbnails/${stream.id}.webp`}
                 alt={getSmallTitle(decode(stream.title ?? ""))}
                 width={320}
                 height={180}
-                quality={100}
               />
               <p className="video-title">{getSmallTitle(decode(stream.title ?? ""))}</p>
               <p>

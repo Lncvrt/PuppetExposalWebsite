@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 
@@ -40,7 +39,7 @@ const Home = () => {
     } else if (exposalPhotoNumber == 14) {
       setExposalPhotoMessage("Bad excuse.");
     } else if (exposalPhotoNumber == 15) {
-      setExposalPhotoMessage("This is complete BS. Discord has ZERO chat encryption. Puppet pretty much talks on no other chat app than Discord.");
+      setExposalPhotoMessage("This is complete BS. Discord has ZERO chat encryption (hence the recent geometry dash creator points situation, and literally said by the ceo that e2e will not be coming to discord). Puppet pretty much talks on no other chat app than Discord.");
     } else if (exposalPhotoNumber == 19) {
       setExposalPhotoMessage("What the FUCK? Raping somebody, venting to another person, and not including important details like age (they were 8 btw) is crazy. Also for clarification, puppet did actually rape them.");
     } else {
@@ -79,7 +78,7 @@ const Home = () => {
         <button onClick={() => changeExposalImage(-1)}>Backward</button>
         <button onClick={() => changeExposalImage(1)}>Forward</button>
         <br />
-        <Image src={exposalPhotoSource} alt="Gallery Image" />
+        <img src={exposalPhotoSource} alt="Gallery Image" />
         <p style={{ display: exposalPhotoMessage != "" ? "" : "none" }}>{exposalPhotoMessage}</p>
         <p>Page {exposalPhotoNumber}</p>
         <Link draggable="false" href="https://puppet-cdn.lncvrt.xyz/exposal-archive.zip" target="_blank">Click here to download these photos</Link>
@@ -97,7 +96,7 @@ const Home = () => {
         <button onClick={() => changeNeighborhoodImage(1)}>Forward</button>
         <br />
         <div style={{ position: "relative", display: "inline-block" }}>
-          <Image src={neighborhoodPhotoSource} width={256} height={256} quality={30} alt="Gallery Image" />
+          <img src={neighborhoodPhotoSource} width={256} height={256} alt="Gallery Image" />
           <p style={{ position: "absolute", top: 0, right: 30, margin: 0, rotate: "20deg", scale: "1.5" }} hidden={neighborhoodPhotoNumber != 1}>🌟</p>
         </div>
         <p>Page {neighborhoodPhotoNumber}</p>
@@ -124,11 +123,11 @@ const Home = () => {
       <br />
       <p>Puppet sending... whatever this is, sure!</p>
       <br />
-      <Image src="https://puppet-cdn.lncvrt.xyz/exposal/announcement.png" width={720} height={1280} quality={100} alt="" />
+      <img src="https://puppet-cdn.lncvrt.xyz/exposal/announcement.png" width={720} height={1280} alt="" />
       <br />
       <p>This was sent in a discord server with 90% of kids being under 13, Including puppet (11)!</p>
       <br />
-      <Image src="https://puppet-cdn.lncvrt.xyz/exposal/announcement-reply.png" width={720} height={1280} quality={100} alt="" />
+      <img src="https://puppet-cdn.lncvrt.xyz/exposal/announcement-reply.png" width={720} height={1280} alt="" />
       <br />
       <p>Puppet replied (through the most premium chat platform - github issues!) saying it was a joke but I don&apos;t think he realizes his discord is full of very young people</p>
       <div className="seperator" />

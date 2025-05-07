@@ -7,7 +7,6 @@ import "./styles.css";
 import { Lexend, Roboto } from "next/font/google";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFloppyDisk, faHouse, faThumbsUp } from "@fortawesome/free-solid-svg-icons";
-import { faTwitch, faYoutube } from "@fortawesome/free-brands-svg-icons";
 
 const lexend = Lexend({
   subsets: ["latin"],
@@ -53,17 +52,11 @@ const Layout = ({ children }: { children: React.ReactNode; }) => {
               <Link draggable={false} href="/" className={useIsSelectedExact("/") ? "selected-path" : ""}>
                 <FontAwesomeIcon icon={faHouse} width={14} height={14} className="top-bar-icon" /> Home
               </Link>
-              <Link draggable={false} href="/youtube-archive" className={useIsSelected("/youtube-archive") ? "selected-path" : ""}>
-                <FontAwesomeIcon icon={faYoutube} width={14} height={14} className="top-bar-icon" /> YouTube Archive
-              </Link>
-              <Link draggable={false} href="/twitch-archive" className={useIsSelected("/twitch-archive") ? "selected-path" : ""}>
-                <FontAwesomeIcon icon={faTwitch} width={14} height={14} className="top-bar-icon" /> Twitch Archive
+              <Link draggable={false} href="/archives" className={useIsSelected("/archives") ? "selected-path" : ""}>
+                <FontAwesomeIcon icon={faFloppyDisk} width={14} height={14} className="top-bar-icon" /> Archives
               </Link>
               <Link draggable={false} href="/profiles" className={useIsSelected("/profiles") ? "selected-path" : ""}>
                 <FontAwesomeIcon icon={faThumbsUp} width={14} height={14} className="top-bar-icon" /> Online Profiles
-              </Link>
-              <Link draggable={false} href="/archive-info" className={useIsSelected("/archive-info") ? "selected-path" : ""}>
-                <FontAwesomeIcon icon={faFloppyDisk} width={14} height={14} className="top-bar-icon" /> Archive Info
               </Link>
             </div>
           </header>
