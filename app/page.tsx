@@ -122,7 +122,7 @@ const Home = () => {
         </audio>
       </div>
       <br />
-      <p>Puppet sending... whatever this is, sure!</p>
+      <p>Puppet saying... whatever this is, sure!</p>
       <br />
       <Image src="https://puppet-cdn.lncvrt.xyz/exposal/announcement.png" width={720} height={1280} quality={100} unoptimized={true} alt="" />
       <br />
