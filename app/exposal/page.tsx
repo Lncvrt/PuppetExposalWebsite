@@ -55,7 +55,7 @@ export default function Exposal() {
     <section className="container-section">
       <h1>Puppet Exposal</h1>
       <p>Puppet has raped a 8 year old, this is the reason the site exists.</p>
-      <p>I wouldn't put this much work just for someone I don't like.</p>
+      <p>I wouldn&apos;t put this much work just for someone I don&apos;t like.</p>
       <div className="seperator" />
       <h3>Puppet&apos;s Info</h3>
       <div className="select">
@@ -86,7 +86,7 @@ export default function Exposal() {
       </div>
       <p>Puppet denies raping a 8 year old, but has admitted to it several times on VC.</p>
       <div className="seperator" />
-      <h3>Let's explore his neighborhood!</h3>
+      <h3>Let&apos;s explore his neighborhood!</h3>
       <div style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
         <iframe src="https://www.google.com/maps/embed?pb=!4v1739767076062!6m8!1m7!1sbfGX5GM9X7Z12L4-a3tUAg!2m2!1d47.58186217938682!2d-117.5630710157365!3f175.03170310641482!4f0.3904171338496525!5f0.7820865974627469" width="1280" height="720" allowFullScreen />
       </div>
