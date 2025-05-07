@@ -1,5 +1,5 @@
 import { faDiscord, faTelegram } from "@fortawesome/free-brands-svg-icons";
-import { faFloppyDisk, faThumbsUp, faWarning } from "@fortawesome/free-solid-svg-icons";
+import { faFloppyDisk, faUser, faWarning } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Link from "next/link";
 import React from "react";
@@ -20,7 +20,7 @@ const Home = () => {
           <span className="selection-title">Exposal</span>
         </Link>
         <Link draggable={false} href="/profiles" className="selection-box button">
-          <FontAwesomeIcon icon={faThumbsUp} className="selection-icon" />
+          <FontAwesomeIcon icon={faUser} className="selection-icon" />
           <span className="selection-title">Online Profiles</span>
         </Link>
         <Link draggable={false} href="/discord" className="selection-box button">

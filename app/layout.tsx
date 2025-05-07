@@ -6,7 +6,7 @@ import Link from "next/link";
 import "./styles.css";
 import { Lexend, Roboto } from "next/font/google";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faFloppyDisk, faHouse, faThumbsUp, faWarning } from "@fortawesome/free-solid-svg-icons";
+import { faFloppyDisk, faHouse, faUser, faWarning } from "@fortawesome/free-solid-svg-icons";
 
 const lexend = Lexend({
   subsets: ["latin"],
@@ -73,7 +73,7 @@ const Layout = ({ children }: { children: React.ReactNode; }) => {
                 <FontAwesomeIcon icon={faWarning} width={14} height={14} className="top-bar-icon" /> Exposal
               </Link>
               <Link draggable={false} href="/profiles" className={useIsSelected("/profiles") ? "selected-path" : ""}>
-                <FontAwesomeIcon icon={faThumbsUp} width={14} height={14} className="top-bar-icon" /> Online Profiles
+                <FontAwesomeIcon icon={faUser} width={14} height={14} className="top-bar-icon" /> Online Profiles
               </Link>
             </div>
           </header>
