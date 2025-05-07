@@ -41,8 +41,8 @@ const Layout = ({ children }: { children: React.ReactNode; }) => {
           <link rel="icon" href="/favicon.ico" />
           <meta property="og:title" content="Thepuppetqueen57&apos;s Info - Exposal Site" />
           <meta property="og:type" content="website" />
-          <meta property="og:url" content="http://www.lncvrt.xyz/" />
-          <meta property="og:image" content="http://puppet.lncvrt.xyz/favicon.png" />
+          <meta property="og:url" content="https://www.lncvrt.xyz/" />
+          <meta property="og:image" content="https://puppet.lncvrt.xyz/favicon.png" />
           <meta property="og:description" content="Exposing puppet for what he did to a 8 year old, and more." />
           <meta name="theme-color" content="#ffee00" />
           <meta name="twitter:card" content="summary_small_image" />
