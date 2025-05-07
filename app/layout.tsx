@@ -30,17 +30,30 @@ const Layout = ({ children }: { children: React.ReactNode; }) => {
 
   const currentYear = new Date().getFullYear();
 
+  const pathTitles: { [key: string]: string } = {
+    "/archives/twitch/watch": "Twitch Archive",
+    "/archives/youtube/watch": "YouTube Archive Viewer",
+    "/archives/twitch": "Twitch Archive",
+    "/archives/youtube": "YouTube Archive",
+    "/profiles": "Online Profiles",
+    "/archives": "Archives",
+    "/": "Home",
+  };
+  const pathname = usePathname() || "";
+  const pathTitle = Object.keys(pathTitles).find((key) => pathname.startsWith(key))
+    ? pathTitles[Object.keys(pathTitles).find((key) => pathname.startsWith(key))!]
+    : "N/A";
+  if (pathTitle === "N/A") console.log(`Path title not found for ${pathname}, using "N/A"`);
+
   return (
     <>
       <html lang="en" className={`${lexend.className} ${roboto.className}`}>
         <head>
-          <meta charSet="UTF-8" />
-          <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-          <title>Thepuppetqueen57&apos;s Info - Exposal Site</title>
+          <title>{`Thepuppetqueen57 Exposal - ${pathTitle}`}</title>
           <link rel="icon" href="/favicon.ico" />
-          <meta property="og:title" content="Thepuppetqueen57&apos;s Info - Exposal Site" />
+          <meta property="og:title" content={`Thepuppetqueen57 Exposal - ${pathTitle}`} />
           <meta property="og:type" content="website" />
-          <meta property="og:url" content="https://www.lncvrt.xyz/" />
+          <meta property="og:url" content={`https://puppet.lncvrt.xyz${pathname}`} />
           <meta property="og:image" content="https://puppet.lncvrt.xyz/favicon.png" />
           <meta property="og:description" content="Exposing puppet for what he did to a 8 year old, and more." />
           <meta name="theme-color" content="#ffee00" />
@@ -65,7 +78,7 @@ const Layout = ({ children }: { children: React.ReactNode; }) => {
             <p>&copy; 2024 - {currentYear} Lncvrt &bull; Website designed Lncvrt - Website founded by Lncvrt & Max - Contact: <Link href="mailto:puppet-contact@lncvrt.xyz">puppet-contact@lncvrt.xyz</Link></p>
           </section>
         </body>
-      </html >
+      </html>
     </>
   );
 };
