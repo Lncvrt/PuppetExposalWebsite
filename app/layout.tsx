@@ -7,7 +7,6 @@ import "./styles.css";
 import { Lexend, Roboto } from "next/font/google";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFloppyDisk, faHouse, faThumbsUp } from "@fortawesome/free-solid-svg-icons";
-import Head from "next/head";
 
 const lexend = Lexend({
   subsets: ["latin"],
@@ -49,7 +48,7 @@ const Layout = ({ children }: { children: React.ReactNode; }) => {
   return (
     <>
       <html lang="en" className={`${lexend.className} ${roboto.className}`}>
-        <Head>
+        <head>
           <title>{`Thepuppetqueen57 Exposal - ${pathTitle}`}</title>
           <link rel="icon" href="/favicon.ico" />
           <meta property="og:title" content={`Thepuppetqueen57 Exposal - ${pathTitle}`} />
@@ -59,7 +58,7 @@ const Layout = ({ children }: { children: React.ReactNode; }) => {
           <meta property="og:description" content="Exposing puppet for what he did to a 8 year old, and more." />
           <meta name="theme-color" content="#ffee00" />
           <meta name="twitter:card" content="summary_small_image" />
-        </Head>
+        </head>
         <body>
           <header className="top-bar">
             <div className="top-bar-content">
