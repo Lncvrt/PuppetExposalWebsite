@@ -68,6 +68,7 @@ export default function Exposal() {
         <p><strong>Birthday:</strong> January 13th, 2013</p>
         <p><strong>Email: </strong> <Link href="mailto:doggyandkira2013@gmail.com">doggyandkira2013@gmail.com</Link></p>
         <p><strong>Gender: </strong> <u>Male</u></p>
+        <p><strong>Phone Number: </strong> +1 (509) 385-7487</p>
       </div>
       <div style={{ display: "flex", justifyContent: "center" }}>
         <button onClick={() => setShanyaDefendShow(!shanyaDefendShow)}>Click to {shanyaDefendShow ? "hide" : "show"} what Shanya (24 year old) wrote to defend Puppet when he said the N-Word</button>
