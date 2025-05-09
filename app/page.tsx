@@ -34,6 +34,7 @@ const Home = () => {
       </div>
       <br />
       <p>We are working on adding to the website, join our <Link href="/discord">Discord</Link> for updates.</p>
+      <p>New info added on <Link href="/exposal">Exposal page</Link>!</p>
     </section>
   );
 };
