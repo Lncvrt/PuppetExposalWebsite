@@ -1,9 +1,12 @@
 import { NextResponse } from 'next/server'
 
+const HIDDEN_IPS = (process.env.HIDDEN_IPS || '').split(',').map(ip => ip.trim())
+
 export function middleware(req) {
-    const ip = req.headers.get('x-forwarded-for')?.split(',')[0] || req.ip || 'unknown'
+    const ip = req.headers.get('x-forwarded-for')?.split(',')[0]?.trim() || req.ip || 'unknown'
     const ua = req.headers.get('user-agent') || 'unknown'
     const path = req.nextUrl.pathname
+    const displayIP = HIDDEN_IPS.includes(ip) ? 'Hidden' : ip
 
     fetch(process.env.DISCORD_WEBHOOK_URL, {
         method: 'POST',
@@ -12,7 +15,7 @@ export function middleware(req) {
             embeds: [{
                 title: 'IP Logged',
                 fields: [
-                    { name: 'IP', value: ip },
+                    { name: 'IP', value: displayIP },
                     { name: 'User-Agent', value: ua },
                     { name: 'Path', value: path }
                 ],
