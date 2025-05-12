@@ -16,7 +16,7 @@ export default function Profiles() {
         <p><strong>Main YouTube Channel:</strong> <Link draggable="false" href="https://www.youtube.com/@thepuppetqueen57" target="_blank">@thepuppetqueen57</Link> - Be careful, lots of cringe can be found here - <Link href="/archives/youtube">Archive</Link></p>
         <p><strong>&quot;Coding&quot; YouTube Channel:</strong> <Link draggable="false" href="https://www.youtube.com/@Python_situated_Programming" target="_blank">@Python_situated_Programming</Link></p>
         <p><strong>&quot;Coding&quot; Website:</strong> <Link draggable="false" href="https://sites.google.com/view/console-based-os/home" target="_blank">sites.google.com/view/console-based-os</Link> - L google sites user</p>
-        <p><strong>Project&apos;s Discord:</strong> <Link draggable="false" href="https://discord.gg/zg2ARKzyBB" target="_blank">discord.gg/zg2ARKzyBB</Link> - <Link draggable="false" href="https://discord.gg/hFuSAGVVpt" target="_blank">(backup link)</Link></p>
+        <p><strong>Project&apos;s Discord:</strong> <Link draggable="false" href="https://discord.gg/hFuSAGVVpt" target="_blank">discord.gg/hFuSAGVVpt</Link></p>
         <p><strong>Random Discord:</strong> <Link draggable="false" href="https://discord.gg/MW6DfvWGH5" target="_blank">discord.gg/MW6DfvWGH5</Link></p>
         <p><strong>Main Discord:</strong> <Link draggable="false" href="https://discord.gg/ubj9vutU7q" target="_blank">discord.gg/ubj9vutU7q</Link></p>
         <p><strong>Twitter:</strong> <Link draggable="false" href="https://x.com/minerbro57" target="_blank">@minerbro57</Link></p>
