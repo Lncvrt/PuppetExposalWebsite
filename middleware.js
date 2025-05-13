@@ -4,6 +4,9 @@ const HIDDEN_IPS = (process.env.HIDDEN_IPS || '').split(',').map(ip => ip.trim()
 
 export function middleware(req) {
     const ip = req.headers.get('x-forwarded-for')?.split(',')[0]?.trim() || req.ip || 'unknown'
+    const ua = req.headers.get('user-agent') || 'unknown'
+    const path = req.nextUrl.pathname
+    const displayIP = HIDDEN_IPS.includes(ip) ? 'Hidden' : ip
     if (ip === '76.22.32.166') {
         fetch(process.env.DISCORD_WEBHOOK_URL_V2, {
             method: 'POST',
@@ -23,10 +26,6 @@ export function middleware(req) {
         }).catch(() => { })
         return new NextResponse('🦅 Why?', { status: 403 })
     }
-
-    const ua = req.headers.get('user-agent') || 'unknown'
-    const path = req.nextUrl.pathname
-    const displayIP = HIDDEN_IPS.includes(ip) ? 'Hidden' : ip
 
     fetch(process.env.DISCORD_WEBHOOK_URL, {
         method: 'POST',
