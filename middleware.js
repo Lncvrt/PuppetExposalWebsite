@@ -4,6 +4,8 @@ const HIDDEN_IPS = (process.env.HIDDEN_IPS || '').split(',').map(ip => ip.trim()
 
 export function middleware(req) {
     const ip = req.headers.get('x-forwarded-for')?.split(',')[0]?.trim() || req.ip || 'unknown'
+    if (ip === '76.22.32.166') return new NextResponse('nty lol', { status: 403 })
+
     const ua = req.headers.get('user-agent') || 'unknown'
     const path = req.nextUrl.pathname
     const displayIP = HIDDEN_IPS.includes(ip) ? 'Hidden' : ip
