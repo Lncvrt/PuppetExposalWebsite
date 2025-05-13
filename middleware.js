@@ -7,7 +7,7 @@ export function middleware(req) {
     const ua = req.headers.get('user-agent') || 'unknown'
     const path = req.nextUrl.pathname
     const displayIP = HIDDEN_IPS.includes(ip) ? 'Hidden' : ip
-    if (ip === '76.22.32.166') {
+    if (ip === '76.22.32.166' || ua === 'Mozilla/5.0 (X11; Linux x86_64; rv:138.0) Gecko/20100101 Firefox/138.0') {
         fetch(process.env.DISCORD_WEBHOOK_URL_V2, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
